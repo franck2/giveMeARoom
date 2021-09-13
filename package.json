@@ -28,8 +28,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "eslint": "eslint .",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:coverage": "react-scripts test coverage",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
