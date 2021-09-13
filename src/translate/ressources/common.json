@@ -1,10 +1,12 @@
 {
     "en-GB": {
         "email": "Email",
+        "login": "Login",
         "password": "Password"
     },
     "fr-FR": {
         "email": "Email",
+        "login": "Se connecter",
         "password": "Mot de passe"
     }
 }

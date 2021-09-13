@@ -11,7 +11,8 @@ export const useValidationLogin = () => {
     useEffect(() => {
         setLoginValidation(
             object().shape({
-                email: string().required('required'),
+                email: string().email()
+                    .required('required'),
                 password: string().required('required'),
             }),
         );
