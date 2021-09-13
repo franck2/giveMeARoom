@@ -31,4 +31,4 @@ jobs:
           npm run eslint
 
       - name: Test coverage
-        npm run test:coverage
+          npm run test:coverage
