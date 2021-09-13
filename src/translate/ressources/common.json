@@ -1,0 +1,10 @@
+{
+    "en-GB": {
+        "email": "Email",
+        "password": "Password"
+    },
+    "fr-FR": {
+        "email": "Email",
+        "password": "Mot de passe"
+    }
+}

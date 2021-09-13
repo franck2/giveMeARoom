@@ -1,0 +1,14 @@
+{
+  "en-GB": {
+    "languageKey": "english",
+    "languageResolver": "english",
+    "english": "english",
+    "french": "french"
+  },
+  "fr-FR": {
+    "languageKey": "français",
+    "languageResolver": "french",
+    "english": "anglais",
+    "french": "français"
+  }
+}
