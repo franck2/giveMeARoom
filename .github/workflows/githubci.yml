@@ -25,10 +25,10 @@ jobs:
         run: npm ci
 
       - name: Build
-          npm run build
+        run: npm run build
 
       - name: Linter
-          npm run eslint
+        run: npm run eslint
 
       - name: Test coverage
-          npm run test:coverage
+        run: npm run test:coverage
