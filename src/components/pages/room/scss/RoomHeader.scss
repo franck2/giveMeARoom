@@ -1,0 +1,17 @@
+
+$grid__cols: 12;
+
+.room-bar-container {
+    width: 100%;
+    max-height: 3em;
+    &__row {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    @for $i from 1 through $grid__cols {
+        &__col-#{$i} {
+          flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+        }
+      }
+}

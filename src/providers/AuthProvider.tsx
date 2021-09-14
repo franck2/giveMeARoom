@@ -1,8 +1,5 @@
 import { createContext, Dispatch, useContext, useReducer } from 'react';
 
-import { useHistory } from 'react-router';
-
-import { appRoutesUrl } from '../components/router/appRoutesUrl';
 import { AuthActionEnum } from '../types/providers/auth/AuthActionEnum';
 import { IAuthAction } from '../types/providers/auth/IAuthAction';
 import { IAuthContext } from '../types/providers/auth/IAuthContext';
@@ -16,7 +13,6 @@ interface IAuthProviderProps {
     children: JSX.Element,
 }
 export const AuthProvider = ({ children }: IAuthProviderProps) => {
-    const history = useHistory();
     const [auth, dispatchAuth]: [IAuthContext, Dispatch<IAuthAction>] = useReducer(
         (authState: IAuthContext, action: IAuthAction) => {
             switch (action.type) {
@@ -24,13 +20,13 @@ export const AuthProvider = ({ children }: IAuthProviderProps) => {
                     return {
                         ...authState,
                         token: action.auth.token,
+                        isAuth: true,
                     };
                 case AuthActionEnum.HAS_TO_LOG:
-                    history.push(appRoutesUrl.login);
-
                     return {
                         ...authState,
                         token: '',
+                        isAuth: false,
                     };
                 default:
                     return {
