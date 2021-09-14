@@ -12,6 +12,8 @@
     "@types/react-dom": "^17.0.9",
     "@types/react-router-dom": "^5.1.8",
     "@types/yup": "^0.29.13",
+    "axios": "^0.21.4",
+    "cross-env": "^7.0.3",
     "formik": "^2.2.9",
     "i18next": "^20.6.1",
     "i18next-browser-languagedetector": "^6.1.2",
@@ -27,11 +29,11 @@
     "yup": "^0.32.9"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "cross-env REACT_APP_ENV=local react-scripts start",
     "eslint": "eslint .",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "test:coverage": "react-scripts test coverage",
+    "build": "cross-env REACT_APP_ENV=local react-scripts build",
+    "test": "cross-env REACT_APP_ENV=local react-scripts test",
+    "test:coverage": "cross-env REACT_APP_ENV=local react-scripts test coverage",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

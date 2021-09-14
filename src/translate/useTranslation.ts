@@ -9,6 +9,7 @@ const addNamespace = (namespace?: string) => {
     let resources;
 
     try {
+        // eslint-disable-next-line global-require
         resources = require(`./ressources/${namespace}.json`);
     } catch {
         console.error('can\'t find namespace');

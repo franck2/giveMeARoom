@@ -2,6 +2,7 @@ import { useCallback } from 'react';
 
 import { Form, Formik, FormikProps } from 'formik';
 
+import { useGetToken } from '../../../api/login/useGetToken';
 import { useTranslateCommon } from '../../../translate/hooks/useTranslateCommon';
 import { CommonKeys } from '../../../translate/keys/commonKeys';
 import { ILoginForm } from '../../../types/ILoginForm';
@@ -13,9 +14,11 @@ import './scss/Login.scss';
 export const Login = () => {
     const { loginValidation } = useValidationLogin();
     const { translateCommon } = useTranslateCommon();
-    const handleSubmit = useCallback(() => {
-        console.log('submit');
-    }, []);
+    const { handleGetToken } = useGetToken();
+
+    const handleSubmit = useCallback((loginForm: ILoginForm) => {
+        handleGetToken(loginForm);
+    }, [handleGetToken]);
 
     return (
         <div className={'login-body'}>
