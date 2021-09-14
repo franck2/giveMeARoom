@@ -1,5 +1,5 @@
 /* eslint-disable no-process-env */
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { AxiosRequestConfig } from 'axios';
 
@@ -20,15 +20,12 @@ const apiOptions: AxiosRequestConfig = {
 export const useClientApi = () => {
     const { auth } = useAuthContext();
     const { dispatchAuth } = useAuthContext();
-    const [client, setClient] = useState(new ApiClient(getAxiosInstance(
+    const [client] = useState(new ApiClient(getAxiosInstance(
         apiOptions,
         dispatchAuth,
         auth?.token,
     )));
 
-    useEffect(() => {
-        setClient(new ApiClient(getAxiosInstance(apiOptions, dispatchAuth, auth?.token)));
-    }, [auth?.token, dispatchAuth]);
 
     return {
         client,
