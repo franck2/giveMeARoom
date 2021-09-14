@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 
-import { useResourceApi } from '../../../../api/rooms/useRoomsApi';
-import { IRoomDetails } from '../../../../types/components/pages/room/IRoomDetails';
+import { IRoomDetails } from '../../../types/components/pages/room/IRoomDetails';
+import { useRoomApi } from '../useRoomsApi';
 
 export const useGetRoomDetails = () => {
-    const { getResource } = useResourceApi();
+    const { getResource } = useRoomApi();
     const [roomDetails, setRoomDetails] = useState<IRoomDetails>();
 
     useEffect(() => {

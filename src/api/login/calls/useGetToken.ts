@@ -4,11 +4,11 @@ import { useCallback } from 'react';
 
 import { useHistory } from 'react-router';
 
-import { appRoutesUrl } from '../../components/router/appRoutesUrl';
-import { useAuthContext } from '../../providers/AuthProvider';
-import { ILoginForm } from '../../types/ILoginForm';
-import { AuthActionEnum } from '../../types/providers/auth/AuthActionEnum';
-import { useLoginApi } from './useLoginApi';
+import { appRoutesUrl } from '../../../components/router/appRoutesUrl';
+import { useAuthContext } from '../../../providers/AuthProvider';
+import { ILoginForm } from '../../../types/ILoginForm';
+import { AuthActionEnum } from '../../../types/providers/auth/AuthActionEnum';
+import { useLoginApi } from '../useLoginApi';
 
 export const useGetToken = () => {
     const { getToken } = useLoginApi();

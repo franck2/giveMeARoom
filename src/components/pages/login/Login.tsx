@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 
 import { Form, Formik, FormikProps } from 'formik';
 
-import { useGetToken } from '../../../api/login/useGetToken';
+import { useGetToken } from '../../../api/login/calls/useGetToken';
 import { useTranslateCommon } from '../../../translate/hooks/useTranslateCommon';
 import { CommonKeys } from '../../../translate/keys/commonKeys';
 import { ILoginForm } from '../../../types/ILoginForm';

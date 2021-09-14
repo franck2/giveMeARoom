@@ -5,7 +5,7 @@ import { AxiosRequestConfig } from 'axios';
 
 import { useAuthContext } from '../providers/AuthProvider';
 import { ApiClient } from './client/ApiClient';
-import { getAxiosInstance } from './client/useAxiosInstance';
+import { getAxiosInstance } from './client/apiClientHelpers';
 
 
 const EnvironementConfiguration = require('./client/config.json');
