@@ -4,7 +4,7 @@ import { IResultApi } from '../../types/api/IResultApi';
 import { IRoomBookingBack } from '../../types/components/pages/room/IRoomBooking';
 import { IRoomDetails } from '../../types/components/pages/room/IRoomDetails';
 import { useClientApi } from '../api';
-import { getResourceApi } from './helpers/apiLoginContants';
+import { getBookingsApi, getResourceApi } from './helpers/apiLoginContants';
 
 export const useRoomApi = () => {
     const { client } = useClientApi();
@@ -12,7 +12,7 @@ export const useRoomApi = () => {
     const getResource = useCallback(() => client.get<IResultApi<IRoomDetails>>(getResourceApi)
         .then((response) => response.data.data), [client]);
 
-    const getBooking = useCallback(() => client.get<IResultApi<IRoomBookingBack[]>>(getResourceApi)
+    const getBooking = useCallback(() => client.get<IResultApi<IRoomBookingBack[]>>(getBookingsApi)
         .then((response) => response.data.data), [client]);
 
     return {

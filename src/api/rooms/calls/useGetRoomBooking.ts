@@ -9,12 +9,13 @@ import { useRoomApi } from '../useRoomsApi';
 
 
 export const useGetRoomBooking = (_roomId: string) => {
-    const [booking, setBooking] = useState<IRoomBookingFront[]>();
+    const [bookings, setBookings] = useState<IRoomBookingFront[]>();
     const { getBooking } = useRoomApi();
 
     useEffect(() => {
+        console.log('bah ');
         getBooking().then((response) => {
-            setBooking(mapBookingBackToFront(response));
+            setBookings(mapBookingBackToFront(response));
         })
             .catch(() => {
             // 'TODO' log
@@ -22,6 +23,6 @@ export const useGetRoomBooking = (_roomId: string) => {
     }, [getBooking]);
 
     return {
-        booking,
+        bookings,
     };
 };
