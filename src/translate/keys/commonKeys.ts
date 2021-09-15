@@ -1,5 +1,8 @@
 export enum CommonKeys {
-    submit = 'submit',
+    bookedBy = 'bookedBy',
     email = 'email',
+    fromTo ='fromTo',
     password = 'password',
+    submit = 'submit',
+    unknowBookingTime = 'unknowBookingTime'
 }

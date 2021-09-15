@@ -5,6 +5,7 @@ $blue: #5C94F5;
 
 .reserved {
     background-color: $red;
+    cursor: pointer
 }
 
 .free {
@@ -13,5 +14,27 @@ $blue: #5C94F5;
 
 .self-reserved {
     background-color: $blue;
+    cursor: pointer
 }
+
+.info-slot-popover {
+    height: auto;
+    border-radius: 0.25rem;
+    border: 1px solid rgba(33, 33, 33, 0.25);
+    padding: 1em;
+    outline: currentcolor none 0px;
+    .arrow-popover {
+        height: 1em;
+        svg {
+            margin: -2px;
+            .stroke {
+                fill: rgba(33,33,33,0.25);
+            }
+            .fill {
+                fill: white;
+            }
+        }
+    }
+}
+
 

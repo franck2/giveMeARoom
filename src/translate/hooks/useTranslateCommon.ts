@@ -8,7 +8,7 @@ export const useTranslateCommon = () => {
     const { t } = useTranslationGiveMeARoom(i18nNamespaceCommon);
 
     const translateCommon = useCallback(
-        (key: string, data?: Map<string, string>) => t(`${i18nNamespaceCommon}:${key}`, data),
+        (key: string, data?: {[key: string]: string}) => t(`${i18nNamespaceCommon}:${key}`, data),
         [t],
     );
 

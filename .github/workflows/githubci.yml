@@ -27,8 +27,5 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Linter
-        run: npm run eslint
-
       - name: Test coverage
         run: npm run test:coverage

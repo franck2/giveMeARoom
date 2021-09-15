@@ -101,3 +101,5 @@ export const getBookedSlot = (
         }
     }
 };
+
+export const getSlotSize = (slot: ITimeLineBloc) => slot.endMinute - slot.startMinute + 1;
