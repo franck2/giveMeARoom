@@ -13,7 +13,6 @@ export const useGetRoomBooking = (_roomId: string) => {
     const { getBooking } = useRoomApi();
 
     useEffect(() => {
-        console.log('bah ');
         getBooking().then((response) => {
             setBookings(mapBookingBackToFront(response));
         })

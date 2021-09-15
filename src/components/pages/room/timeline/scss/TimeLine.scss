@@ -1,24 +1,17 @@
 
-$hours__cols: 24;
-$minutes__cols: 60;
-$red: #FF6868;
-$green: #15AD1C;
-$blue: #5C94F5;
+$hours__cols: 12;
 
 .timeline-container {
-    border-radius: 2em;
-    margin: 2em;
-    width: 50%;
-    max-height: 3em;
+    width: 100%;
+    max-height: 4em;
     &__row {
         display: flex;
         flex-wrap: wrap;
         width: 100%;
     }
-    @for $i from 1 through ($hours__cols * $minutes__cols) {
+    @for $i from 1 through ($hours__cols) {
         &__col-#{$i} {
-          flex-basis: (100 / ($hours__cols * $minutes__cols / $i) ) * 1%;
+          flex-basis: (100 / ($hours__cols / $i) ) * 1%;
         }
       };
-
 }

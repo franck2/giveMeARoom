@@ -1,0 +1,17 @@
+$red: #FF6868;
+$green: #15AD1C;
+$blue: #5C94F5;
+
+
+.reserved {
+    background-color: $red;
+}
+
+.free {
+    background-color: $green;
+}
+
+.self-reserved {
+    background-color: $blue;
+}
+
