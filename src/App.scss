@@ -1,6 +1,9 @@
+@import './style/appColors.scss';
+
 html {
     height: 100%;
     body {
+        background-color: $whiteCream;
         height: 100%;
         & div{
             height: 100%;

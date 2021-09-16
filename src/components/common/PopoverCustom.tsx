@@ -9,9 +9,10 @@ import { PopoverProps,
 interface IPopoverCustomProps {
     children: JSX.Element | string,
     disclosure: JSX.Element,
+    disabled?: boolean,
 }
 
-export const PopoverCustom = ({ disclosure, ...props }: IPopoverCustomProps & PopoverProps) => {
+export const PopoverCustom = ({ disabled, disclosure, ...props }: IPopoverCustomProps & PopoverProps) => {
     const popover = usePopoverState({
         placement: 'top-start',
     });
@@ -21,6 +22,7 @@ export const PopoverCustom = ({ disclosure, ...props }: IPopoverCustomProps & Po
             <PopoverDisclosure
                 {...popover}
                 {...disclosure.props}
+                disabled={disabled}
             >
                 {(disclosureProps) => cloneElement(disclosure, disclosureProps)}
             </PopoverDisclosure>

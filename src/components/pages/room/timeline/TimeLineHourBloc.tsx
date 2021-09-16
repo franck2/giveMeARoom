@@ -1,6 +1,6 @@
 import { ITimeLineBloc } from '../../../../types/components/pages/room/timeline/ITimeLineBloc';
 import './scss/TimeLine.scss';
-import { TimeLineSlotBloc } from './TimeLineSlot';
+import { TimeLineSlot } from './TimeLineSlot';
 
 interface ITimeLineHourBlocProps {
     minutesSlots: ITimeLineBloc[],
@@ -26,7 +26,7 @@ export const TimeLineHourBloc = ({
             <div className={'bloc-container__col-2 slot-container'}>
                 <div className={'slot-container__row'}>
 
-                    {minutesSlots.map((slot) => (<TimeLineSlotBloc key={`ok${slot.startMinute}${hour}`} slot={slot}/>))}
+                    {minutesSlots.map((slot) => (<TimeLineSlot key={`ok${slot.startMinute}${hour}`} slot={slot}/>))}
                 </div>
             </div>
         </div>
