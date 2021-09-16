@@ -11,7 +11,7 @@
         "unknowBookingTime": "Unkown date"
     },
     "fr-FR": {
-        "alreadyUsed": "La pièce est déjà réservée par {{userName}}, de {{from}} à {{to}} pour : {{reason}}",
+        "alreadyUsed": "La salle est déjà réservée par {{userName}}, de {{from}} à {{to}} pour : {{reason}}",
         "bookedBy": "Réservé par : ",
         "email": "Email",
         "fromTo": "De {{from}} à {{to}}",

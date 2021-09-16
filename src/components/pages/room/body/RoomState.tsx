@@ -1,3 +1,7 @@
+import { useEffect } from 'react';
+
+import { useGetUser } from '../../../../api/users/calls/useGetUser';
+import { getDisplayTime } from '../../../../tools/date';
 import { useTranslateCommon } from '../../../../translate/hooks/useTranslateCommon';
 import { CommonKeys } from '../../../../translate/keys/commonKeys';
 import { IRoomBookingFront } from '../../../../types/components/pages/room/IRoomBooking';
@@ -8,16 +12,15 @@ interface IRoomStateProps {
     bookedSlot?: IRoomBookingFront,
 }
 
-export const RoomState = ({
-    bookedSlot = {
-        end: new Date(),
-        id: '',
-        name: 'toto',
-        start: new Date(),
-        userId: '',
-    },
-}: IRoomStateProps) => {
+export const RoomState = ({ bookedSlot }: IRoomStateProps) => {
     const { translateCommon } = useTranslateCommon();
+    const { user, handleGetUser } = useGetUser();
+
+    useEffect(() => {
+        if (bookedSlot?.userId) {
+            handleGetUser(bookedSlot?.userId);
+        }
+    }, [bookedSlot?.userId, handleGetUser]);
 
     return (
         <div className={'room-state'}>
@@ -25,10 +28,10 @@ export const RoomState = ({
                 {
                     bookedSlot ?
                         translateCommon(CommonKeys.alreadyUsed, {
-                            reason: 'toto',
-                            userName: 'toto',
-                            from: 'ahah',
-                            to: 'ok',
+                            reason: bookedSlot.name,
+                            userName: user?.name || '',
+                            from: getDisplayTime(bookedSlot.start),
+                            to: getDisplayTime(bookedSlot.end),
                         }) :
                         translateCommon(CommonKeys.roomIsFree)
                 }
