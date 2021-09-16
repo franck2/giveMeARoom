@@ -22,6 +22,7 @@ $map-grid-props: ('-sm': 0, '-md': $grid__bp-md, '-lg': $grid__bp-lg);
       @for $i from 1 through $grid-cols {
         &__col#{$modifier}-#{$i} {
           flex-basis: (100 / ($grid-cols / $i) ) * 1%;
+          height: auto;
         }
       }
     }
@@ -46,20 +47,6 @@ $map-grid-props: ('-sm': 0, '-md': $grid__bp-md, '-lg': $grid__bp-lg);
 
 .room-body {
     height: 65%;
-    .room-msg {
-        margin: auto;
-        background: green;
-        width: 50%;
-        max-height: 20rem;
-        display: flex;
-        align-items: center;
-        & div {
-            text-align: center;
-            height: auto;
-            width: 100%;
-        }
-    }
-
     .room-time-selection-container {
         background: chocolate;
         margin: 1em auto 1em auto;

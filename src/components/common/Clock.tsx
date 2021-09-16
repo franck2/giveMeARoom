@@ -9,12 +9,14 @@ export const Clock = () => {
     }));
 
     useEffect(() => {
-        setTimeout(() => {
+        const timer = setTimeout(() => {
             setTime(format(new Date(), 'p', {
                 locale: fr,
             }));
-        }, 1000);
-    }, []);
+        }, 60000);
+
+        return () => clearTimeout(timer);
+    }, [time]);
 
     return <div>{time}</div>;
 };

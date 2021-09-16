@@ -8,7 +8,7 @@ import { mapBookingBackToFront } from '../helpers/roomMappers';
 import { useRoomApi } from '../useRoomsApi';
 
 
-export const useGetRoomBooking = (_roomId: string) => {
+export const useGetRoomBooking = (_roomId?: string) => {
     const [bookings, setBookings] = useState<IRoomBookingFront[]>();
     const { getBooking } = useRoomApi();
 

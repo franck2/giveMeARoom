@@ -1,24 +1,20 @@
 import { useEffect, useState } from 'react';
 
-import { useGetRoomBooking } from '../../../../api/rooms/calls/useGetRoomBooking';
+import { IRoomBookingFront } from '../../../../types/components/pages/room/IRoomBooking';
 import { ITimeLineBloc } from '../../../../types/components/pages/room/timeline/ITimeLineBloc';
 import { mapBookingToTimeLineBloc } from './helpers/timeLineMappers';
 import { TimeLineHourBloc } from './TimeLineHourBloc';
 import './scss/TimeLine.scss';
 
 interface ITimLineProps {
-    idRoom: string,
+    bookings: IRoomBookingFront[],
 }
 
-export const TimeLine = ({ idRoom }: ITimLineProps) => {
-    const { bookings } = useGetRoomBooking(idRoom);
-
+export const TimeLine = ({ bookings }: ITimLineProps) => {
     const [timelineBlocs, setTimeLineBlocs] = useState<Map<number, ITimeLineBloc[]>>(new Map());
 
     useEffect(() => {
-        if (bookings) {
-            setTimeLineBlocs(mapBookingToTimeLineBloc(bookings));
-        }
+        setTimeLineBlocs(mapBookingToTimeLineBloc(bookings));
     }, [bookings]);
 
     return (

@@ -1,3 +1,4 @@
+import { useGetRoomBooking } from '../../../api/rooms/calls/useGetRoomBooking';
 import { useGetRoomDetails } from '../../../api/rooms/calls/useGetRoomDetails';
 import { RoomBody } from './body/RoomBody';
 import { RoomHeader } from './header/RoomHeader';
@@ -6,6 +7,7 @@ import './scss/Room.scss';
 
 export const Room = () => {
     const { roomDetails } = useGetRoomDetails();
+    const { bookings } = useGetRoomBooking(roomDetails?.id);
 
     return (
         <>
@@ -14,9 +16,9 @@ export const Room = () => {
                 <RoomHeader roomName={roomDetails?.name}/>
             }
             <div className={'body-container'}>
-                <RoomBody />
+                {bookings && <RoomBody bookings={bookings} />}
                 <div className={'room-timeline '}>
-                    {roomDetails?.id && <TimeLine idRoom={roomDetails.id} />}
+                    {bookings && <TimeLine bookings={bookings} />}
                 </div>
             </div>
         </>);
