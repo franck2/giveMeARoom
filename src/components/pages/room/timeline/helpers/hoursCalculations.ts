@@ -1,4 +1,3 @@
-/* eslint-disable no-debugger */
 import { getHours } from 'date-fns';
 
 import { maxHour, maxTimeRange, minHour } from './timeLineContants';

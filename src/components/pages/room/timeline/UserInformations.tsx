@@ -1,8 +1,6 @@
 import { getDisplayTime } from '../../../../tools/date';
 import { useTranslateBooking } from '../../../../translate/hooks/useTranslateBooking';
-import { useTranslateCommon } from '../../../../translate/hooks/useTranslateCommon';
 import { TranslateBookingKeys } from '../../../../translate/keys/TranslateBookingKeys';
-import { TranslateCommonKeys } from '../../../../translate/keys/TranslateCommonKeys';
 import { ITimeLineBloc } from '../../../../types/components/pages/room/timeline/ITimeLineBloc';
 
 interface IUserInformationsProps {
