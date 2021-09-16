@@ -1,15 +1,14 @@
-$red: #FF6868;
-$green: #15AD1C;
+@import '../../../../../style/appColors.scss';
+
 $blue: #5C94F5;
 
-
 .reserved {
-    background-color: $red;
+    background-color: $bookedRed;
     cursor: pointer
 }
 
 .free {
-    background-color: $green;
+    background-color: $freeGreen;
 }
 
 .self-reserved {

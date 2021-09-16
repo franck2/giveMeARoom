@@ -1,0 +1,39 @@
+@import '../../../../../style/appColors.scss';
+
+.reservation-form {
+    text-align: center;
+    margin: auto;
+    width: 25em;
+    height: 12em;
+    @media (max-width: 992px) {
+        width: 12em;
+        height: 8em;
+    }
+    .room-time-msg {
+        font-size: xx-large;
+        color: white;
+        height: 50%;
+        @media (max-width: 992px) {
+            font-size: large;
+        }
+    }
+    background-color: $sharingCloudColor;
+}
+
+.button {
+    cursor: pointer;
+    border: 0;
+    text-transform: uppercase;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1.875rem;
+    padding: 10px;
+    @media (max-width: 992px) {
+        font-size: x-large;
+        font-size: 0.875rem;
+    }
+    &.central-button {
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+}

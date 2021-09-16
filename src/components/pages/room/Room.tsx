@@ -16,7 +16,7 @@ export const Room = () => {
                 <RoomHeader roomName={roomDetails?.name}/>
             }
             <div className={'body-container'}>
-                {bookings && <RoomBody bookings={bookings} />}
+                {bookings && roomDetails && <RoomBody bookings={bookings} roomDetails={roomDetails}/>}
                 <div className={'room-timeline '}>
                     {bookings && <TimeLine bookings={bookings} />}
                 </div>

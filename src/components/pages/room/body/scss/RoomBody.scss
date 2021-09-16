@@ -1,5 +1,5 @@
-$grid__bp-md: 768;
-$grid__bp-lg: 992;
+$grid__bp-md: 992;
+$grid__bp-lg: 1216;
 $grid__cols: 12;
 
 $map-grid-props: ('-sm': 0, '-md': $grid__bp-md, '-lg': $grid__bp-lg);
@@ -23,6 +23,11 @@ $map-grid-props: ('-sm': 0, '-md': $grid__bp-md, '-lg': $grid__bp-lg);
         &__col#{$modifier}-#{$i} {
           flex-basis: (100 / ($grid-cols / $i) ) * 1%;
           height: auto;
+          margin-top: 5%;
+          margin-bottom: 5%;
+          @media (max-width: 992px) {
+            margin: 0px;
+          }
         }
       }
     }
@@ -46,15 +51,11 @@ $map-grid-props: ('-sm': 0, '-md': $grid__bp-md, '-lg': $grid__bp-lg);
   }
 
 .room-body {
-    height: 65%;
+    height: 80%;
     .room-time-selection-container {
-        background: chocolate;
         margin: 1em auto 1em auto;
         height: fit-content;
         width: fit-content;
-        .room-time-msg {
-            height: 5rem;
-        }
     }
 }
 

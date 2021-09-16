@@ -1,6 +1,9 @@
 .body-container{
     .room-timeline {
-        height: 35%;
+        height: 20%;
     }
     height: 90%;
+    @media (max-width: 992px) {
+        height: 70%;
+      }
 }

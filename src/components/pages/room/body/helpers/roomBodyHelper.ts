@@ -1,6 +1,6 @@
 import { differenceInMinutes } from 'date-fns';
 
-import { IRoomBookingFront } from '../../../../types/components/pages/room/IRoomBooking';
+import { IRoomBookingFront } from '../../../../../types/components/pages/room/IRoomBooking';
 
 export const getCurrentBookedSlot = (
     bookings: IRoomBookingFront[],
