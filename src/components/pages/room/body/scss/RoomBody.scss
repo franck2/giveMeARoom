@@ -1,5 +1,6 @@
-$grid__bp-md: 992;
-$grid__bp-lg: 1216;
+@import '../../../../../style/appConstants.scss';
+@import '../../../../../style/appConstants.scss';
+
 $grid__cols: 12;
 
 $map-grid-props: ('-sm': 0, '-md': $grid__bp-md, '-lg': $grid__bp-lg);
@@ -25,7 +26,7 @@ $map-grid-props: ('-sm': 0, '-md': $grid__bp-md, '-lg': $grid__bp-lg);
           height: auto;
           margin-top: 5%;
           margin-bottom: 5%;
-          @media (max-width: 992px) {
+          @media (max-width: $grid__bp-md + 'px') {
             margin: 0px;
           }
         }

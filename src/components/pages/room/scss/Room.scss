@@ -1,9 +1,12 @@
+@import '../../../../style/appConstants.scss';
+
+
 .body-container{
     .room-timeline {
         height: 20%;
     }
     height: 90%;
-    @media (max-width: 992px) {
+    @media (max-width: $grid__bp-md + 'px') {
         height: 70%;
       }
 }

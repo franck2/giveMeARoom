@@ -1,11 +1,12 @@
 @import '../../../../../style/appColors.scss';
+@import '../../../../../style/appConstants.scss';
 
 .reservation-form {
     text-align: center;
     margin: auto;
     width: 25em;
     height: 12em;
-    @media (max-width: 992px) {
+    @media (max-width: $grid__bp-md + 'px') {
         width: 12em;
         height: 8em;
     }
@@ -13,7 +14,7 @@
         font-size: xx-large;
         color: white;
         height: 50%;
-        @media (max-width: 992px) {
+        @media (max-width: $grid__bp-md + 'px') {
             font-size: large;
         }
     }
@@ -28,7 +29,7 @@
     font-weight: bold;
     font-size: 1.875rem;
     padding: 10px;
-    @media (max-width: 992px) {
+    @media (max-width: $grid__bp-md + 'px') {
         font-size: x-large;
         font-size: 0.875rem;
     }

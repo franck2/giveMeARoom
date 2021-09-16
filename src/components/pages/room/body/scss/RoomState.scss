@@ -1,11 +1,12 @@
 @import '../../../../../style/appColors.scss';
+@import '../../../../../style/appConstants.scss';
 
 .room-state {
     margin: auto;
     background: $contentColor;
     width: 50%;
     max-height: 20rem;
-    @media (max-width: 992px) {
+    @media (max-width: $grid__bp-md + 'px') {
         max-height: 8rem;
         width: 100%;
         margin: 1em 1em 1em 2em;
@@ -21,7 +22,7 @@
     .room-msg {
         color: white;
         font-size: xx-large;
-        @media (max-width: 992px) {
+        @media (max-width: $grid__bp-md + 'px') {
             font-size: x-large;
         }
           

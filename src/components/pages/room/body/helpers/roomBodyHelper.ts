@@ -2,6 +2,13 @@ import { differenceInMinutes } from 'date-fns';
 
 import { IRoomBookingFront } from '../../../../../types/components/pages/room/IRoomBooking';
 
+const isDateBetweenStartEnd = (date: Date, start: Date, end: Date) => {
+    const differenceFromStart = differenceInMinutes(date, start);
+    const differenceFromEnd = differenceInMinutes(date, end);
+
+    return differenceFromStart >= 0 && differenceFromEnd <= 0;
+};
+
 export const getCurrentBookedSlot = (
     bookings: IRoomBookingFront[],
 ): IRoomBookingFront | undefined => {
@@ -10,10 +17,7 @@ export const getCurrentBookedSlot = (
     let bookedSlot;
 
     while (bookedSlot === undefined && indexBooking < bookings.length) {
-        const differenceFromStart = differenceInMinutes(currentDate, bookings[indexBooking].start);
-        const differenceFromEnd = differenceInMinutes(currentDate, bookings[indexBooking].end);
-
-        if (differenceFromStart >= 0 && differenceFromEnd <= 0) {
+        if (isDateBetweenStartEnd(currentDate, bookings[indexBooking].start, bookings[indexBooking].end)) {
             bookedSlot = bookings[indexBooking];
         }
         indexBooking++;

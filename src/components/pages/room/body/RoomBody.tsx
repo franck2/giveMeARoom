@@ -5,6 +5,7 @@ import { IRoomDetails } from '../../../../types/components/pages/room/IRoomDetai
 import { getCurrentBookedSlot } from './helpers/roomBodyHelper';
 import { ReservationForm } from './ReservationForm';
 import { RoomState } from './RoomState';
+
 import './scss/RoomBody.scss';
 
 interface IRoomBodyProps {

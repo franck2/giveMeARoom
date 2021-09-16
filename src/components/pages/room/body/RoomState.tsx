@@ -2,9 +2,10 @@ import { useEffect } from 'react';
 
 import { useGetUser } from '../../../../api/users/calls/useGetUser';
 import { getDisplayTime } from '../../../../tools/date';
-import { useTranslateCommon } from '../../../../translate/hooks/useTranslateCommon';
-import { CommonKeys } from '../../../../translate/keys/commonKeys';
+import { useTranslateBooking } from '../../../../translate/hooks/useTranslateBooking';
+import { TranslateBookingKeys } from '../../../../translate/keys/TranslateBookingKeys';
 import { IRoomBookingFront } from '../../../../types/components/pages/room/IRoomBooking';
+import { ElevationContainer } from '../../../common/containers/ElevationContainer';
 
 import './scss/RoomState.scss';
 
@@ -13,7 +14,7 @@ interface IRoomStateProps {
 }
 
 export const RoomState = ({ bookedSlot }: IRoomStateProps) => {
-    const { translateCommon } = useTranslateCommon();
+    const { translateBooking } = useTranslateBooking();
     const { user, handleGetUser } = useGetUser();
 
     useEffect(() => {
@@ -23,19 +24,19 @@ export const RoomState = ({ bookedSlot }: IRoomStateProps) => {
     }, [bookedSlot?.userId, handleGetUser]);
 
     return (
-        <div className={'room-state'}>
+        <ElevationContainer className={'room-state'}>
             <div className={'room-msg'}>
                 {
                     bookedSlot ?
-                        translateCommon(CommonKeys.alreadyUsed, {
+                        translateBooking(TranslateBookingKeys.alreadyUsed, {
                             reason: bookedSlot.name,
                             userName: user?.name || '',
                             from: getDisplayTime(bookedSlot.start),
                             to: getDisplayTime(bookedSlot.end),
                         }) :
-                        translateCommon(CommonKeys.roomIsFree)
+                        translateBooking(TranslateBookingKeys.roomIsFree)
                 }
             </div>
-        </div>
+        </ElevationContainer>
     );
 };

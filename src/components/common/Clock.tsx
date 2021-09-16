@@ -1,19 +1,17 @@
 import { useEffect, useState } from 'react';
 
-import { format } from 'date-fns';
-import { fr } from 'date-fns/locale';
+import { millisecondsInMinute } from 'date-fns';
+
+import { getDisplayTime } from '../../tools/date';
+
 
 export const Clock = () => {
-    const [time, setTime] = useState<string>(format(new Date(), 'p', {
-        locale: fr,
-    }));
+    const [time, setTime] = useState<string>(getDisplayTime(new Date()));
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            setTime(format(new Date(), 'p', {
-                locale: fr,
-            }));
-        }, 60000);
+            setTime(getDisplayTime(new Date()));
+        }, millisecondsInMinute);
 
         return () => clearTimeout(timer);
     }, [time]);

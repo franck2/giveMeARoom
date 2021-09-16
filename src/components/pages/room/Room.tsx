@@ -3,6 +3,7 @@ import { useGetRoomDetails } from '../../../api/rooms/calls/useGetRoomDetails';
 import { RoomBody } from './body/RoomBody';
 import { RoomHeader } from './header/RoomHeader';
 import { TimeLine } from './timeline/TimeLine';
+
 import './scss/Room.scss';
 
 export const Room = () => {

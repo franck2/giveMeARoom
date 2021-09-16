@@ -1,6 +1,8 @@
 import { getDisplayTime } from '../../../../tools/date';
+import { useTranslateBooking } from '../../../../translate/hooks/useTranslateBooking';
 import { useTranslateCommon } from '../../../../translate/hooks/useTranslateCommon';
-import { CommonKeys } from '../../../../translate/keys/commonKeys';
+import { TranslateBookingKeys } from '../../../../translate/keys/TranslateBookingKeys';
+import { TranslateCommonKeys } from '../../../../translate/keys/TranslateCommonKeys';
 import { ITimeLineBloc } from '../../../../types/components/pages/room/timeline/ITimeLineBloc';
 
 interface IUserInformationsProps {
@@ -11,19 +13,18 @@ export const UserInformations = ({
     userName,
     slot,
 }: IUserInformationsProps) => {
-    const { translateCommon } = useTranslateCommon();
-
+    const { translateBooking } = useTranslateBooking();
 
     return (
         <ul>
-            <li>{`${translateCommon(CommonKeys.bookedBy)} ${userName}`}</li>
+            <li>{`${translateBooking(TranslateBookingKeys.bookedBy)} ${userName}`}</li>
             <li>{
                 `${slot.booking
-                    ? translateCommon(CommonKeys.fromTo, {
+                    ? translateBooking(TranslateBookingKeys.fromTo, {
                         from: getDisplayTime(slot.booking?.start),
                         to: getDisplayTime(slot.booking?.end),
                     })
-                    : translateCommon(CommonKeys.unknowBookingTime)}`
+                    : translateBooking(TranslateBookingKeys.unknowBookingTime)}`
             }
             </li>
         </ul>

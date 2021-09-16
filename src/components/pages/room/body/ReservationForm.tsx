@@ -1,7 +1,8 @@
-import { useTranslateCommon } from '../../../../translate/hooks/useTranslateCommon';
-import { CommonKeys } from '../../../../translate/keys/commonKeys';
+import { useTranslateBooking } from '../../../../translate/hooks/useTranslateBooking';
+import { TranslateBookingKeys } from '../../../../translate/keys/TranslateBookingKeys';
 import { IRoomBookingFront } from '../../../../types/components/pages/room/IRoomBooking';
 import { IRoomDetails } from '../../../../types/components/pages/room/IRoomDetails';
+import { ElevationContainer } from '../../../common/containers/ElevationContainer';
 
 import './scss/ReservationForm.scss';
 
@@ -11,12 +12,12 @@ interface IReservationFormProps {
 }
 
 export const ReservationForm = ({ bookings, roomDetails }: IReservationFormProps) => {
-    const { translateCommon } = useTranslateCommon();
+    const { translateBooking } = useTranslateBooking();
 
     return (
-        <div className={'reservation-form'}>
+        <ElevationContainer className={'reservation-form'}>
             <div className={'room-time-msg'}>
-                <div>{translateCommon(CommonKeys.bookFor)}
+                <div>{translateBooking(TranslateBookingKeys.bookFor)}
                 </div>
             </div>
             <div>
@@ -24,5 +25,5 @@ export const ReservationForm = ({ bookings, roomDetails }: IReservationFormProps
                 <button role={'button'} className={'button central-button'}>Réserver</button>
                 <button role={'button'} className={'button'}> +</button>
             </div>
-        </div>);
+        </ElevationContainer>);
 };
