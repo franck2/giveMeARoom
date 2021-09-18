@@ -1,6 +1,7 @@
 {
     "en-GB": {
         "alreadyUsed": "The room is already booked by {{userName}}, from {{from}} to {{to}} for : {{reason}}",
+        "cantBook": "Not possible yo choose a reservation duration",
         "bookedBy": "Booked by : ",
         "bookingDuration": "{{duration}} minutes",
         "bookFor": "Booking duration : ",
@@ -8,6 +9,7 @@
         "fromTo": "From {{from}} to {{to}}",
         "handleBook": "Book",
         "increaseBookDuration": "Increase booking duration",
+        "lastMinute": "Last minute reservation",
         "reloadWithNewData": "Relaod with new date",
         "roomIsFree": "The room is actually free",
         "slotIs-free": "Free slot from {{from}} to {{to}}",
@@ -17,6 +19,7 @@
     },
     "fr-FR": {
         "alreadyUsed": "La salle est déjà réservée par {{userName}}, de {{from}} à {{to}} pour : {{reason}}",
+        "cantBook": "Impossible de choisir une durée de réservation",
         "bookingDuration": "{{duration}} minutes",
         "bookedBy": "Réservé par : ",
         "bookFor": "Réserver pendant : ",
@@ -24,6 +27,7 @@
         "fromTo": "De {{from}} à {{to}}",
         "handleBook": "Réserver",
         "increaseBookDuration": "Augmenter le temps de réservation",
+        "lastMinute": "Réservation de dernière minute",
         "reloadWithNewData": "Recharger avec de nouvelles données",
         "roomIsFree": "La salle est actuellement libre",
         "slotIs-free": "Créneau libre de {{from}} à {{to}}",

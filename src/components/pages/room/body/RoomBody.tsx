@@ -11,9 +11,14 @@ import './scss/RoomBody.scss';
 interface IRoomBodyProps {
     bookings: IRoomBookingFront[],
     roomDetails: IRoomDetails,
+    handleGetBooking: () => void,
 }
 
-export const RoomBody = ({ bookings, roomDetails }: IRoomBodyProps) => {
+export const RoomBody = ({
+    bookings,
+    roomDetails,
+    handleGetBooking,
+}: IRoomBodyProps) => {
     const [bookedSlot, setBookedSlot] = useState<IRoomBookingFront>();
 
     useEffect(() => {
@@ -28,7 +33,11 @@ export const RoomBody = ({ bookings, roomDetails }: IRoomBodyProps) => {
                 </div>
 
                 <div className={'container__col-sm-6 container__col-md-12 room-time-selection-container'}>
-                    <ReservationForm bookings={bookings} roomDetails={roomDetails}/>
+                    <ReservationForm
+                        bookings={bookings}
+                        roomDetails={roomDetails}
+                        handleGetBooking={handleGetBooking}
+                    />
                 </div>
             </div>
         </div>);

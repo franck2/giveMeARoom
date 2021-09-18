@@ -36,5 +36,6 @@ export const useGetRoomBooking = (_roomId?: string) => {
     return {
         bookings,
         handleResetBooking,
+        handleGetBooking,
     };
 };

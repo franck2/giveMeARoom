@@ -7,7 +7,7 @@ export class ApiClient {
         this.client = client;
     }
 
-    post<T> (url: string, data: T) {
+    post<T, P> (url: string, data: P) {
         return this.client.post<T>(url, data);
     }
 

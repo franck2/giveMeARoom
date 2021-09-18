@@ -8,7 +8,7 @@ import './scss/Room.scss';
 
 export const Room = () => {
     const { roomDetails } = useGetRoomDetails();
-    const { bookings, handleResetBooking } = useGetRoomBooking(roomDetails?.id);
+    const { bookings, handleResetBooking, handleGetBooking } = useGetRoomBooking(roomDetails?.id);
 
     return (
         <>
@@ -20,7 +20,14 @@ export const Room = () => {
                 />
             }
             <div className={'body-container'}>
-                {bookings && roomDetails && <RoomBody bookings={bookings} roomDetails={roomDetails}/>}
+                {
+                    bookings && roomDetails &&
+                <RoomBody
+                    bookings={bookings}
+                    roomDetails={roomDetails}
+                    handleGetBooking={handleGetBooking}
+                />
+                }
                 <div className={'room-timeline '}>
                     {bookings && <TimeLine bookings={bookings} />}
                 </div>

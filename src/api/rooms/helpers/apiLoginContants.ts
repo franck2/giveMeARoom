@@ -1,3 +1,3 @@
 export const getResourceApi = '/resource';
-export const getBookingsApi = '/bookings';
+export const bookingsApi = '/bookings';
 export const getResetBooking = '/reset';

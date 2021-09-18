@@ -1,8 +1,7 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { differenceInMinutes, isAfter } from 'date-fns';
 
-import { isBetween } from '../../../../../tools/date';
 import { useTranslateBooking } from '../../../../../translate/hooks/useTranslateBooking';
 import { TranslateBookingKeys } from '../../../../../translate/keys/TranslateBookingKeys';
 import { IconKeyEnum } from '../../../../../types/components/common/icon/IconKeyEnum';
@@ -15,14 +14,18 @@ interface IReservationFormActionsProps {
     roomDetails: IRoomDetails,
     bookingDuration: number,
     nextBooking?: IRoomBookingFront,
+    canBook: boolean,
     setBookingDuration: (newDuration: number) => void,
+    handleBookTheRoom: () => void,
 }
 
 export const ReservationFormActions = ({
     roomDetails,
     bookingDuration,
     nextBooking,
+    canBook,
     setBookingDuration,
+    handleBookTheRoom,
 }: IReservationFormActionsProps) => {
     const { translateBooking } = useTranslateBooking();
 
@@ -48,9 +51,6 @@ export const ReservationFormActions = ({
     }, [nextBooking, roomDetails.maximumBookingDuration]);
 
 
-    const canBook = useMemo(() => (nextBooking === undefined ||
-        !isBetween(new Date(), nextBooking.start, nextBooking.end)), [nextBooking]);
-
     return (
         <div>
             <button
@@ -58,7 +58,7 @@ export const ReservationFormActions = ({
                 aria-label={translateBooking(TranslateBookingKeys.decreaseBookDuration)}
                 className={'button'}
                 onClick={handleLessDuration}
-                disabled={bookingDuration <= roomDetails.minimumBookingDuration}
+                disabled={bookingDuration <= roomDetails.minimumBookingDuration || !canBook}
             >
                 <Icon iconKey={IconKeyEnum.MINUS} />
             </button>
@@ -66,6 +66,7 @@ export const ReservationFormActions = ({
                 role={'button '}
                 className={'button central-button'}
                 disabled={!canBook}
+                onClick={handleBookTheRoom}
             >
                 {translateBooking(TranslateBookingKeys.handleBook)}
             </button>
@@ -74,7 +75,7 @@ export const ReservationFormActions = ({
                 className={'button'}
                 aria-label={translateBooking(TranslateBookingKeys.increaseBookDuration)}
                 onClick={handleMoreDuration}
-                disabled={maximumDuration <= (bookingDuration + roomDetails.bookingDurationStep)}
+                disabled={maximumDuration <= (bookingDuration + roomDetails.bookingDurationStep) || !canBook}
             >
                 <Icon iconKey={IconKeyEnum.PLUS} />
             </button>
