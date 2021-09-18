@@ -25,7 +25,7 @@
         "handleBook": "Réserver",
         "increaseBookDuration": "Augmenter le temps de réservation",
         "reloadWithNewData": "Recharger avec de nouvelles données",
-        "roomIsFree": "La pièce est actuellement libre",
+        "roomIsFree": "La salle est actuellement libre",
         "slotIs-free": "Créneau libre de {{from}} à {{to}}",
         "slotIs-self-reserved": "Vous avez réservé ce créneau de {{from}} à {{to}}",
         "slotIs-reserved": "Créneau réservé de {{from}} à {{to}}",

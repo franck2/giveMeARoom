@@ -24,7 +24,7 @@ export const RoomState = ({ bookedSlot }: IRoomStateProps) => {
     }, [bookedSlot?.userId, handleGetUser]);
 
     return (
-        <ElevationContainer className={'room-state'}>
+        <ElevationContainer className={`room-state actual-status-${bookedSlot ? 'booked' : 'free'}`}>
             <div className={'room-msg'}>
                 {
                     bookedSlot ?

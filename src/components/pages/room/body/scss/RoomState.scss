@@ -2,6 +2,12 @@
 @import '../../../../../style/appConstants.scss';
 
 .room-state {
+    &.actual-status-free {
+        background-color: $freeGreen;
+    }    
+    &.actual-status-booked {
+        background-color: $bookedRed;
+    }
     margin: auto;
     background: $contentColor;
     width: 50%;
