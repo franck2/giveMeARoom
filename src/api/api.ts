@@ -54,6 +54,7 @@ export const useClientApi = () => {
                     dispatchAuth({
                         auth: {
                             token,
+                            expirationDate: new Date(resultNewLogin.data.data.expirationDate),
                         },
                         type: AuthActionEnum.UPDATE_TOKEN,
                     });

@@ -19,6 +19,7 @@ export const useGetToken = () => {
             dispatchAuth({
                 auth: {
                     token: response.token,
+                    expirationDate: new Date(response.expirationDate),
                 },
                 type: AuthActionEnum.UPDATE_TOKEN,
             });
