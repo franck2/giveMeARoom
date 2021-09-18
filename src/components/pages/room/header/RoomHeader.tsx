@@ -11,16 +11,17 @@ interface IRoomHeaderProps {
 export const RoomHeader = ({ roomName, handleResetBooking }: IRoomHeaderProps) => (
     <div className={'room-bar-container'}>
         <div className={'room-bar-container__row'}>
-            <div className={'room-bar-container__col-2'}>
+            <div className={'room-bar-container__col-3'}>
                 <button
                     role={'button'}
+                    className={'reload-room'}
                     onClick={handleResetBooking}
                 >
                     <Icon iconKey={IconKeyEnum.REFRESH} />
                 </button>
             </div>
-            <div className={'room-bar-container__col-8'}>{roomName}</div>
-            <div className={'room-bar-container__col-2'}><Clock/></div>
+            <div className={'room-bar-container__col-6'}>{roomName}</div>
+            <div className={'room-bar-container__col-3'}><Clock/></div>
         </div>
     </div>
 );

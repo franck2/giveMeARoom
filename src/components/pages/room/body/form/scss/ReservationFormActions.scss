@@ -7,13 +7,24 @@
     border-radius: 4px;
     font-weight: bold;
     font-size: 1.875rem;
-    padding: 10px;
+    width: 2em;
+    height: 2em;
+
+    padding: 0px;
     @media (max-width: $grid__bp-md + 'px') {
         font-size: x-large;
         font-size: 0.875rem;
+        width: 2.5em;
+        height: 2.5em;
     }
     &.central-button {
         margin-left: 1em;
         margin-right: 1em;
+        padding-left: 10px;
+        padding-right: 10px;
+        @media (max-width: $grid__bp-md + 'px') {
+            padding: 0px
+        }
+        width: auto;
     }
 }

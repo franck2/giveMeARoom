@@ -62,7 +62,7 @@ export const ReservationFormActions = ({
                 <Icon iconKey={IconKeyEnum.MINUS} />
             </button>
             <button
-                role={'button'}
+                role={'button '}
                 className={'button central-button'}
                 disabled={!canBook}
             >
