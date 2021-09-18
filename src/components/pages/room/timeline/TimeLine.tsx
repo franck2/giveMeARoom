@@ -24,7 +24,7 @@ export const TimeLine = ({ bookings }: ITimLineProps) => {
                     [...timelineBlocs].map((bloc) => (
                         <TimeLineHourBloc
                             key={`timeline-bloc-${bloc[0]}`}
-                            hour={bloc[0] + 1}
+                            hour={bloc[0]}
                             minutesSlots={bloc[1]}
                         />
                     ))

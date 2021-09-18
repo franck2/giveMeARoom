@@ -2,22 +2,24 @@ import { getHours } from 'date-fns';
 
 import { maxHour, maxTimeRange, minHour } from './timeLineContants';
 
+const isRangeWillBeOutLastHour = (current: number) => maxHour - current < maxTimeRange / 2;
+const isRangeWillBeOutFirtHour = (current: number) => current - maxTimeRange / 2 < minHour;
+
 export const getBoundaryTimeLine = () => {
     const current = getHours(new Date());
 
-    let endHour = 23;
-    let startHour = 0;
+    let endHour = current;
+    let startHour = current;
 
-    if (maxHour - current > maxTimeRange) {
-        endHour += current + maxTimeRange / 2;
-    } else if (maxHour - current < maxTimeRange / 2) {
+    if (isRangeWillBeOutLastHour(current)) {
+        endHour = maxHour;
         startHour -= maxTimeRange / 2 - (maxHour - current);
-    }
-
-    if (current - minHour > maxTimeRange) {
-        startHour += current - maxTimeRange / 2;
-    } else if (current - minHour < maxTimeRange / 2) {
-        endHour += maxTimeRange / 2 - (current - minHour);
+    } else if (isRangeWillBeOutFirtHour(current)) {
+        startHour = minHour;
+        endHour += maxTimeRange / 2 - (current - maxTimeRange / 2);
+    } else {
+        startHour -= maxTimeRange / 2;
+        endHour += maxTimeRange / 2;
     }
 
     return {
