@@ -1,6 +1,8 @@
 import { useCallback } from 'react';
 
 import { useGetUser } from '../../../../api/users/calls/useGetUser';
+import { useTranslateBooking } from '../../../../translate/hooks/useTranslateBooking';
+import { TranslateBookingKeys } from '../../../../translate/keys/TranslateBookingKeys';
 import { ITimeLineBloc } from '../../../../types/components/pages/room/timeline/ITimeLineBloc';
 import { RoomStatusEnum } from '../../../../types/components/pages/room/timeline/RoomStatusEnum';
 import { PopoverCustom } from '../../../common/PopoverCustom';
@@ -14,6 +16,7 @@ interface ITimeLineSlotProps {
 }
 
 export const TimeLineSlot = ({ slot }: ITimeLineSlotProps) => {
+    const { translateBooking } = useTranslateBooking();
     const { user, handleGetUser } = useGetUser();
     const handleDisplaySlotInformation = useCallback(
         () => {
@@ -26,11 +29,18 @@ export const TimeLineSlot = ({ slot }: ITimeLineSlotProps) => {
 
     return (
 
-        <PopoverCustom aria-label={'booked-room'}
+        <PopoverCustom
             baseId={''}
             disabled={!slot.booking || slot.status === RoomStatusEnum.FREE}
             disclosure={
                 <div
+                    aria-label={
+                        translateBooking(
+                            TranslateBookingKeys[`slotIs${slot.status}` as keyof typeof TranslateBookingKeys],
+                        )
+                    }
+                    role="button"
+                    tabIndex={0}
                     className={`slot-container__col-${getSlotSize(slot)} ${slot.status} slot-information`}
                     onClick={handleDisplaySlotInformation}
                 />

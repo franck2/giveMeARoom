@@ -4,9 +4,15 @@
         "bookedBy": "Booked by : ",
         "bookingDuration": "{{duration}} minutes",
         "bookFor": "Book during : ",
+        "decreaseBookDuration": "Decrease booking duration",
         "fromTo": "From {{from}} to {{to}}",
         "handleBook": "Book",
+        "increaseBookDuration": "Increase booking duration",
+        "reloadWithNewData": "Relaod with new date",
         "roomIsFree": "The room is actually free",
+        "slotIs-free": "Free slot from {{from}} to {{to}}",
+        "slotIs-self-reserved": "You have book this slot from {{from}} to {{to}}",
+        "slotIs-reserved": "Booked slot from {{from}} to {{to}}",
         "unknowBookingTime": "Unkown date"
     },
     "fr-FR": {
@@ -14,9 +20,15 @@
         "bookingDuration": "{{duration}} minutes",
         "bookedBy": "Réservé par : ",
         "bookFor": "Réserver pendant : ",
+        "decreaseBookDuration": "Diminuer le temps de réservation",
         "fromTo": "De {{from}} à {{to}}",
         "handleBook": "Réserver",
+        "increaseBookDuration": "Augmenter le temps de réservation",
+        "reloadWithNewData": "Recharger avec de nouvelles données",
         "roomIsFree": "La pièce est actuellement libre",
+        "slotIs-free": "Créneau libre de {{from}} à {{to}}",
+        "slotIs-self-reserved": "Vous avez réservé ce créneau de {{from}} à {{to}}",
+        "slotIs-reserved": "Créneau réservé de {{from}} à {{to}}",
         "unknowBookingTime": "Date inconnue"
     }
 }

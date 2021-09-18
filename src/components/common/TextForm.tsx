@@ -26,7 +26,7 @@ export const TextForm = ({
         <label htmlFor={fieldName}>{`${label} : `}</label>
         <Input
             value={fieldValue}
-            aria-label={fieldName}
+            aria-label={label}
             onChange={handleChange}
             name={fieldName}
             id={fieldName}
