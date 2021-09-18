@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 
 import { IRoomBookingFront } from '../../../../types/components/pages/room/IRoomBooking';
 import { IRoomDetails } from '../../../../types/components/pages/room/IRoomDetails';
+import { ReservationForm } from './form/ReservationForm';
 import { getCurrentBookedSlot } from './helpers/roomBodyHelper';
-import { ReservationForm } from './ReservationForm';
 import { RoomState } from './RoomState';
 
 import './scss/RoomBody.scss';

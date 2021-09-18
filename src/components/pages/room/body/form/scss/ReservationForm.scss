@@ -1,0 +1,25 @@
+@import '../../../../../../style/appColors.scss';
+@import '../../../../../../style/appConstants.scss';
+
+.reservation-form {
+    text-align: center;
+    margin: auto;
+    width: 25em;
+    height: 12em;
+    @media (max-width: $grid__bp-md + 'px') {
+        width: 12em;
+        height: 8em;
+    }
+    .room-time-msg {
+        p{
+            margin: 0px
+        }
+        font-size: xx-large;
+        color: white;
+        height: 50%;
+        @media (max-width: $grid__bp-md + 'px') {
+            font-size: large;
+        }
+    }
+    background-color: $sharingCloudColor;
+}

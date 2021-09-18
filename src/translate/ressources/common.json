@@ -1,26 +1,12 @@
 {
     "en-GB": {
-        "alreadyUsed": "The room is already booked by {{userName}}, from {{from}} to {{to}} for : {{reason}}",
-        "bookedBy": "Booked by : ",
-        "bookFor": "Book during : {{minutes}} minutes",
         "email": "Email",
-        "fromTo": "From {{from}} to {{to}}",
-        "login": "Login",
         "password": "Password",
-        "roomIsFree": "The room is actually free",
-        "submit": "Submit",
-        "unknowBookingTime": "Unkown date"
+        "submit": "Submit"
     },
     "fr-FR": {
-        "alreadyUsed": "La salle est déjà réservée par {{userName}}, de {{from}} à {{to}} pour : {{reason}}",
-        "bookedBy": "Réservé par : ",
-        "bookFor": "Réserver pendant : {{minutes}} minutes",
         "email": "Email",
-        "fromTo": "De {{from}} à {{to}}",
-        "login": "Se connecter",
         "password": "Mot de passe",
-        "roomIsFree": "La pièce est actuellement libre",
-        "submit": "Valider",
-        "unknowBookingTime": "Date inconnue"
+        "submit": "Valider"
     }
 }
