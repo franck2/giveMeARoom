@@ -27,7 +27,7 @@ export const RoomHeader = ({ roomName, handleResetBooking }: IRoomHeaderProps) =
                     </button>
                 </div>
                 <div className={'room-bar-container__col-6'}>{roomName}</div>
-                <div className={'room-bar-container__col-3'}><Clock/></div>
+                <div className={'room-bar-container__col-3 clock'}><Clock/></div>
             </div>
         </div>
     );

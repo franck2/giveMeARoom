@@ -3,7 +3,7 @@
         "alreadyUsed": "The room is already booked by {{userName}}, from {{from}} to {{to}} for : {{reason}}",
         "bookedBy": "Booked by : ",
         "bookingDuration": "{{duration}} minutes",
-        "bookFor": "Book during : ",
+        "bookFor": "Booking duration : ",
         "decreaseBookDuration": "Decrease booking duration",
         "fromTo": "From {{from}} to {{to}}",
         "handleBook": "Book",

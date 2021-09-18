@@ -37,7 +37,7 @@
     "start": "cross-env REACT_APP_ENV=local react-scripts start",
     "eslint": "eslint --config .eslintrc.json --ext .ts,.tsx ./",
     "build": "cross-env REACT_APP_ENV=local react-scripts build",
-    "test": "cross-env REACT_APP_ENV=local react-scripts test --watchAll",
+    "test": "cross-env REACT_APP_ENV=test react-scripts test --watchAll",
     "test:coverage": "cross-env REACT_APP_ENV=local react-scripts test --watchAll --coverage",
     "test:ci": "cross-env REACT_APP_ENV=local react-scripts test --coverage",
     "eject": "react-scripts eject"
