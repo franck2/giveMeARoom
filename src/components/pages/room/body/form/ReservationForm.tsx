@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
+import { getNexBookingFromDate } from '../../../../../tools/booking';
 import { useTranslateBooking } from '../../../../../translate/hooks/useTranslateBooking';
 import { TranslateBookingKeys } from '../../../../../translate/keys/TranslateBookingKeys';
 import { IRoomBookingFront } from '../../../../../types/components/pages/room/IRoomBooking';
@@ -16,6 +17,11 @@ interface IReservationFormProps {
 export const ReservationForm = ({ bookings, roomDetails }: IReservationFormProps) => {
     const { translateBooking } = useTranslateBooking();
     const [bookingDuration, setBookingDuration] = useState<number>(roomDetails.minimumBookingDuration);
+    const [nextBooking, setNextBooking] = useState<IRoomBookingFront>();
+
+    useEffect(() => {
+        setNextBooking(getNexBookingFromDate(new Date(), bookings));
+    }, [bookings]);
 
     return (
         <ElevationContainer className={'reservation-form'}>
@@ -34,6 +40,7 @@ export const ReservationForm = ({ bookings, roomDetails }: IReservationFormProps
                 roomDetails={roomDetails}
                 bookingDuration={bookingDuration}
                 setBookingDuration={setBookingDuration}
+                nextBooking={nextBooking}
             />
         </ElevationContainer>);
 };

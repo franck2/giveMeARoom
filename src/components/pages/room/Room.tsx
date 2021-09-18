@@ -8,13 +8,16 @@ import './scss/Room.scss';
 
 export const Room = () => {
     const { roomDetails } = useGetRoomDetails();
-    const { bookings } = useGetRoomBooking(roomDetails?.id);
+    const { bookings, handleResetBooking } = useGetRoomBooking(roomDetails?.id);
 
     return (
         <>
             {
                 roomDetails &&
-                <RoomHeader roomName={roomDetails?.name}/>
+                <RoomHeader
+                    roomName={roomDetails?.name}
+                    handleResetBooking={handleResetBooking}
+                />
             }
             <div className={'body-container'}>
                 {bookings && roomDetails && <RoomBody bookings={bookings} roomDetails={roomDetails}/>}
