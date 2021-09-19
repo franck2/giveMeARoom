@@ -24,6 +24,7 @@ export const AuthProvider = ({ children }: IAuthProviderProps) => {
                     const newAuth = {
                         ...authState,
                         token: action.auth.token,
+                        expirationDate: action.auth.expirationDate,
                         isAuth: true,
                     };
 
@@ -61,7 +62,7 @@ export const AuthProvider = ({ children }: IAuthProviderProps) => {
 
         const lastAuthDate = authInfos ? new Date(authInfos.expirationDate) : null;
 
-        if (authInfos !== null && lastAuthDate !== null && isBefore(lastAuthDate, current)) {
+        if (authInfos !== null && lastAuthDate !== null && isBefore(current, lastAuthDate)) {
             dispatchAuth({
                 auth: {
                     token: authInfos.token,

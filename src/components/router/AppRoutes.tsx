@@ -12,16 +12,19 @@ export const AppRoutes = () => {
         <BrowserRouter>
             <Switch>
                 {
-                    auth?.isAuth ?
-                        <Route path={appRoutesUrl.login} component={Login} /> :
-                        <Redirect to={appRoutesUrl.room}/>
+                    !auth?.isAuth ?
+                        <>
+                            <Route path={appRoutesUrl.login} component={Login} />
+                            <Redirect to={appRoutesUrl.login}/>
+                        </>
+                        :
+                        <>
+                            <RoutesWithAuth /> :
+                            <Redirect to={appRoutesUrl.room}/>
+                        </>
 
                 }
-                {
-                    auth?.isAuth ?
-                        <RoutesWithAuth /> :
-                        <Redirect to={appRoutesUrl.login}/>
-                }
+
             </Switch>
         </BrowserRouter>
     );

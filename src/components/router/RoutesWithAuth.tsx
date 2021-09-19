@@ -5,5 +5,5 @@ import { appRoutesUrl } from './appRoutesUrl';
 
 export const RoutesWithAuth = () => (
     <>
-        <Route path={appRoutesUrl.room} component={Room} />
+        <Route exact path={appRoutesUrl.room} component={Room} />
     </>);
