@@ -1,8 +1,7 @@
 @import '../../../../../style/appColors.scss';
 
-$blue: #5C94F5;
 
-.reserved {
+.booked {
     background-color: $bookedRed;
     cursor: pointer
 }
@@ -11,8 +10,8 @@ $blue: #5C94F5;
     background-color: $freeGreen;
 }
 
-.self-reserved {
-    background-color: $blue;
+.self-booked {
+    background-color: $darkBlue;
     cursor: pointer
 }
 

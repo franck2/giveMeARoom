@@ -18,27 +18,26 @@ interface ITimeLineSlotProps {
 export const TimeLineSlot = ({ slot }: ITimeLineSlotProps) => {
     const { translateBooking } = useTranslateBooking();
     const { user, handleGetUser } = useGetUser();
-    const handleDisplaySlotInformation = useCallback(
-        () => {
-            if (slot.booking?.userId) {
-                handleGetUser(slot.booking?.userId);
-            }
-        },
-        [slot.booking?.userId, handleGetUser],
-    );
+
+    const handleDisplaySlotInformation = useCallback(() => {
+        if (slot.booking?.userId) {
+            handleGetUser(slot.booking?.userId);
+        }
+    },
+    [slot.booking?.userId, handleGetUser]);
 
     return (
 
         <PopoverCustom
             baseId={''}
             disabled={!slot.booking || slot.status === RoomStatusEnum.FREE}
+            label={
+                translateBooking(
+                    TranslateBookingKeys[`slotIs${slot.status}` as keyof typeof TranslateBookingKeys],
+                )
+            }
             disclosure={
                 <div
-                    aria-label={
-                        translateBooking(
-                            TranslateBookingKeys[`slotIs${slot.status}` as keyof typeof TranslateBookingKeys],
-                        )
-                    }
                     role="button"
                     tabIndex={0}
                     className={`slot-container__col-${getSlotSize(slot)} ${slot.status} slot-information`}

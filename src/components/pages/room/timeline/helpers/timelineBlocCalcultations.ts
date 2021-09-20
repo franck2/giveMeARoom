@@ -7,17 +7,17 @@ import { getSlotsHour } from './slotCalculation';
 
 export const removeBookingMinutes = (
     freeMinutesByHours: Map<number, number[]>,
-    reservedMinutesByHours: Map<number, number[]>,
+    bookedMinutesByHours: Map<number, number[]>,
 ) => {
-    const hoursReservedIterator = reservedMinutesByHours.entries();
+    const hoursReservedIterator = bookedMinutesByHours.entries();
 
-    for (const reservedMinutes of hoursReservedIterator) {
-        const freeMinutes = freeMinutesByHours.get(reservedMinutes[0]);
+    for (const bookedMinutes of hoursReservedIterator) {
+        const freeMinutes = freeMinutesByHours.get(bookedMinutes[0]);
 
         if (freeMinutes) {
-            const newFreeMinutes = freeMinutes.filter((minutes) => !reservedMinutes[1].includes(minutes));
+            const newFreeMinutes = freeMinutes.filter((minutes) => !bookedMinutes[1].includes(minutes));
 
-            freeMinutesByHours.set(reservedMinutes[0], newFreeMinutes);
+            freeMinutesByHours.set(bookedMinutes[0], newFreeMinutes);
         }
     }
 };
@@ -48,7 +48,6 @@ export const getMinuteBlocByHours = (
     for (let indexHour = getHours(start); indexHour < getHours(end); indexHour++) {
         const minutes = freeMinutesByHours.get(indexHour) || [];
         const bookedMinutes = bookedMinutesByHours.get(indexHour) || [];
-
 
         timeline.set(indexHour,
             [

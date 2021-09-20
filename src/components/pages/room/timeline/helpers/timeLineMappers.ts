@@ -6,7 +6,10 @@ import { getBookedSlot,
 import { getMinuteBlocByHours, removeBookingMinutes } from './timelineBlocCalcultations';
 
 
-export const mapBookingToTimeLineBloc = (bookings: IRoomBookingFront[]): Map<number, ITimeLineBloc[]> => {
+export const mapBookingToTimeLineBloc = (
+    bookings: IRoomBookingFront[],
+    userId?: string,
+): Map<number, ITimeLineBloc[]> => {
     const freeMinutesByHours = getInitializeFreeMinutesByHours();
     const bookedMinutesByHours: Map<number, ITimeLineBloc[]> = new Map();
 
@@ -15,7 +18,7 @@ export const mapBookingToTimeLineBloc = (bookings: IRoomBookingFront[]): Map<num
 
         removeBookingMinutes(freeMinutesByHours, newBookedMinutesByHours);
 
-        getBookedSlot(newBookedMinutesByHours, bookedMinutesByHours, booking);
+        getBookedSlot(newBookedMinutesByHours, bookedMinutesByHours, booking, userId);
     }
 
     return getMinuteBlocByHours(freeMinutesByHours, bookedMinutesByHours);

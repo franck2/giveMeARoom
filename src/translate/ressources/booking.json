@@ -13,8 +13,8 @@
         "reloadWithNewData": "Relaod with new date",
         "roomIsFree": "The room is actually free",
         "slotIs-free": "Free slot from {{from}} to {{to}}",
-        "slotIs-self-reserved": "You have book this slot from {{from}} to {{to}}",
-        "slotIs-reserved": "Booked slot from {{from}} to {{to}}",
+        "slotIs-self-booked": "You have book this slot from {{from}} to {{to}}",
+        "slotIs-booked": "Booked slot from {{from}} to {{to}}",
         "unknowBookingTime": "Unkown date"
     },
     "fr-FR": {
@@ -31,8 +31,8 @@
         "reloadWithNewData": "Recharger avec de nouvelles données",
         "roomIsFree": "La salle est actuellement libre",
         "slotIs-free": "Créneau libre de {{from}} à {{to}}",
-        "slotIs-self-reserved": "Vous avez réservé ce créneau de {{from}} à {{to}}",
-        "slotIs-reserved": "Créneau réservé de {{from}} à {{to}}",
+        "slotIs-self-booked": "Vous avez réservé ce créneau de {{from}} à {{to}}",
+        "slotIs-booked": "Créneau réservé de {{from}} à {{to}}",
         "unknowBookingTime": "Date inconnue"
     }
 }

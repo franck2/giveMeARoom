@@ -12,7 +12,7 @@ export enum TranslateBookingKeys {
     reloadWithNewData= 'reloadWithNewData',
     roomIsFree = 'roomIsFree',
     'slotIs-free'= 'slotIs-free',
-    'slotIs-self-reserved' = 'slotIs-self-reserved',
-    'slotIs-reserved' = 'slotIs-reserved',
+    'slotIs-self-booked' = 'slotIs-self-booked',
+    'slotIs-booked' = 'slotIs-booked',
     unknowBookingTime = 'unknowBookingTime'
 }

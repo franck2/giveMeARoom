@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 
+import { useAuthContext } from '../../../../providers/AuthProvider';
 import { IRoomBookingFront } from '../../../../types/components/pages/room/IRoomBooking';
 import { ITimeLineBloc } from '../../../../types/components/pages/room/timeline/ITimeLineBloc';
 import { mapBookingToTimeLineBloc } from './helpers/timeLineMappers';
@@ -12,10 +13,11 @@ interface ITimLineProps {
 
 export const TimeLine = ({ bookings }: ITimLineProps) => {
     const [timelineBlocs, setTimeLineBlocs] = useState<Map<number, ITimeLineBloc[]>>(new Map());
+    const { auth } = useAuthContext();
 
     useEffect(() => {
-        setTimeLineBlocs(mapBookingToTimeLineBloc(bookings));
-    }, [bookings]);
+        setTimeLineBlocs(mapBookingToTimeLineBloc(bookings, auth?.userId));
+    }, [bookings, auth?.userId]);
 
     return (
         <div className={'timeline-container'}>

@@ -1,6 +1,7 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import { useGetUser } from '../../../../api/users/calls/useGetUser';
+import { useAuthContext } from '../../../../providers/AuthProvider';
 import { getDisplayTime } from '../../../../tools/date';
 import { useTranslateBooking } from '../../../../translate/hooks/useTranslateBooking';
 import { TranslateBookingKeys } from '../../../../translate/keys/TranslateBookingKeys';
@@ -16,15 +17,18 @@ interface IRoomStateProps {
 export const RoomState = ({ bookedSlot }: IRoomStateProps) => {
     const { translateBooking } = useTranslateBooking();
     const { user, handleGetUser } = useGetUser();
+    const { auth } = useAuthContext();
+    const [colorSlotClassName, setColorSlotClassName] = useState('free');
 
     useEffect(() => {
         if (bookedSlot?.userId) {
             handleGetUser(bookedSlot?.userId);
+            setColorSlotClassName(bookedSlot.userId === auth?.userId ? 'self-booked' : 'booked');
         }
-    }, [bookedSlot?.userId, handleGetUser]);
+    }, [auth?.userId, bookedSlot?.userId, handleGetUser]);
 
     return (
-        <ElevationContainer className={`room-state actual-status-${bookedSlot ? 'booked' : 'free'}`}>
+        <ElevationContainer className={`room-state actual-status-${colorSlotClassName}`}>
             <div className={'room-msg'}>
                 {
                     bookedSlot ?

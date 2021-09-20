@@ -22,7 +22,6 @@ export const AppRoutes = () => {
                             <RoutesWithAuth /> :
                             <Redirect to={appRoutesUrl.room}/>
                         </>
-
                 }
 
             </Switch>

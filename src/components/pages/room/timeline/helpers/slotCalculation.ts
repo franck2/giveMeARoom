@@ -87,18 +87,21 @@ export const getBookedSlot = (
     newBookedMinutesByHours: Map<number, number[]>,
     bookedMinutesByHours: Map<number, ITimeLineBloc[]>,
     booking: IRoomBookingFront,
+    userId?: string,
 ) => {
     for (const bookedminutes of newBookedMinutesByHours) {
-        if (bookedMinutesByHours.has(bookedminutes[0])) {
-            const previousValues = [...(bookedMinutesByHours.get(bookedminutes[0]) || [])];
+        const slotStatus = booking.userId === userId ? RoomStatusEnum.SELF_BOOKED : RoomStatusEnum.BOOKED;
 
-            bookedMinutesByHours.set(bookedminutes[0], previousValues);
-        } else {
-            bookedMinutesByHours.set(
-                bookedminutes[0],
-                getSlotsHour(bookedminutes[1], RoomStatusEnum.RESERVED, booking),
-            );
-        }
+        const newSlots = [
+            ...(bookedMinutesByHours.get(bookedminutes[0]) || []),
+            ...getSlotsHour(bookedminutes[1], slotStatus, booking),
+        ];
+
+
+        bookedMinutesByHours.set(
+            bookedminutes[0],
+            newSlots,
+        );
     }
 };
 

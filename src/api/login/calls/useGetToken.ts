@@ -14,6 +14,7 @@ export const useGetToken = () => {
     const { getToken } = useLoginApi();
     const { dispatchAuth } = useAuthContext();
     const history = useHistory();
+
     const handleGetToken = useCallback((_loginForm: ILoginForm) => {
         getToken().then((response) => {
             dispatchAuth({

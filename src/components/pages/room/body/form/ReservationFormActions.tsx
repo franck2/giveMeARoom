@@ -42,14 +42,13 @@ export const ReservationFormActions = ({
     useEffect(() => {
         const current = new Date();
 
-        if (nextBooking && isAfter(nextBooking.start, current)) {
+        if (nextBooking && isAfter(current, nextBooking.start)) {
             setMaximumDuration(Math.min(
-                differenceInMinutes(nextBooking.start, current),
+                differenceInMinutes(current, nextBooking.start),
                 roomDetails.maximumBookingDuration,
             ));
         }
     }, [nextBooking, roomDetails.maximumBookingDuration]);
-
 
     return (
         <div>
@@ -75,7 +74,7 @@ export const ReservationFormActions = ({
                 className={'button'}
                 aria-label={translateBooking(TranslateBookingKeys.increaseBookDuration)}
                 onClick={handleMoreDuration}
-                disabled={maximumDuration <= (bookingDuration + roomDetails.bookingDurationStep) || !canBook}
+                disabled={maximumDuration < (bookingDuration + roomDetails.bookingDurationStep) || !canBook}
             >
                 <Icon iconKey={IconKeyEnum.PLUS} />
             </button>
