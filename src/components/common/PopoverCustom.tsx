@@ -6,6 +6,7 @@ import { PopoverProps,
     Popover,
     PopoverArrow } from 'reakit';
 
+import './scss/PopoverCustom.scss';
 interface IPopoverCustomProps {
     children: JSX.Element | string,
     disclosure: JSX.Element,

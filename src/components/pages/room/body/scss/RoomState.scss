@@ -2,6 +2,9 @@
 @import '../../../../../style/appConstants.scss';
 
 .room-state {
+    .room-state-container {
+        height: 100%;
+    }
     &.actual-status-free {
         background-color: $freeGreen;
     }    
@@ -11,7 +14,7 @@
     margin: auto;
     background: $contentColor;
     width: 50%;
-    max-height: 20rem;
+    height: max-content;
     @media (max-width: $grid__bp-md + 'px') {
         max-height: 8rem;
         width: 100%;
@@ -25,12 +28,34 @@
         height: auto;
         width: 100%;
     }
-    .room-msg {
+    .room-msg-container {
+        .room-msg{
+            margin: auto;
+            height: max-content;
+        }
         color: white;
         font-size: xx-large;
+        position: relative;
+        height: 12rem;
+        display: flex;
         @media (max-width: $grid__bp-md + 'px') {
-            font-size: x-large;
+            font-size: large;
+            height: 5rem;
         }
           
+    }
+    .cancel-reservation {
+        cursor: pointer;
+        border: 0;
+        text-transform: uppercase;
+        border-radius: 4px;
+        font-weight: bold;
+        font-size: 1.875rem;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        @media (max-width: $grid__bp-md + 'px') {
+            font-size: 0.875rem;
+            padding: 0.5em
+        }
     }
 }

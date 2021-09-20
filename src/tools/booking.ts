@@ -1,3 +1,5 @@
+import { isAfter } from 'date-fns';
+
 import { IRoomBookingFront } from '../types/components/pages/room/IRoomBooking';
 import { isSameOrAfterTime } from './date';
 
@@ -10,7 +12,7 @@ export const getNexBookingFromDate = (
 
     while (foundBooking === undefined && indexBooking < bookings.length) {
         if (isSameOrAfterTime(bookings[indexBooking].start, date) ||
-        isSameOrAfterTime(bookings[indexBooking].end, date)) {
+        isAfter(bookings[indexBooking].end, date)) {
             foundBooking = bookings[indexBooking];
         }
         indexBooking++;

@@ -3,6 +3,7 @@ export enum TranslateBookingKeys {
     bookedBy = 'bookedBy',
     bookingDuration = 'bookingDuration',
     bookFor ='bookFor',
+    cancelReservation = 'cancelReservation',
     cantBook = 'cantBook',
     decreaseBookDuration = 'decreaseBookDuration',
     fromTo ='fromTo',

@@ -12,12 +12,14 @@ interface IRoomBodyProps {
     bookings: IRoomBookingFront[],
     roomDetails: IRoomDetails,
     handleGetBooking: () => void,
+    handleDeleteBooking: (idBooking: string) => void,
 }
 
 export const RoomBody = ({
     bookings,
     roomDetails,
     handleGetBooking,
+    handleDeleteBooking,
 }: IRoomBodyProps) => {
     const [bookedSlot, setBookedSlot] = useState<IRoomBookingFront>();
 
@@ -29,7 +31,11 @@ export const RoomBody = ({
         <div className={'container--fluid room-body' }>
             <div className="container__row ">
                 <div className={'container__col-sm-6 container__col-md-12'}>
-                    <RoomState bookedSlot={bookedSlot}/>
+                    <RoomState
+                        bookedSlot={bookedSlot}
+                        handleDeleteBooking={handleDeleteBooking}
+                    />
+
                 </div>
 
                 <div className={'container__col-sm-6 container__col-md-12 room-time-selection-container'}>

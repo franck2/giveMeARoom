@@ -1,4 +1,6 @@
 @import '../../../../../style/appColors.scss' ;
+@import '../../../../../style/appConstants.scss';
+
 $grid__cols: 12;
 
 .room-bar-container {
@@ -14,12 +16,15 @@ $grid__cols: 12;
       }
     }
     width: 100%;
-    height: 8%;
+    height: 7%;
     min-height: 2em;
     background-color: $sharingCloudColor;
     color: white;
     text-align: center;
     font-size: xx-large;
+    @media (max-width: $grid__bp-md + 'px') {
+      font-size: large;
+    }
     &__row {
         display: flex;
         flex-wrap: wrap;

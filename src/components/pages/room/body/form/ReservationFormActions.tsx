@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 
-import { differenceInMinutes, isAfter } from 'date-fns';
+import { differenceInMinutes } from 'date-fns';
 
 import { useTranslateBooking } from '../../../../../translate/hooks/useTranslateBooking';
 import { TranslateBookingKeys } from '../../../../../translate/keys/TranslateBookingKeys';
@@ -42,9 +42,9 @@ export const ReservationFormActions = ({
     useEffect(() => {
         const current = new Date();
 
-        if (nextBooking && isAfter(current, nextBooking.start)) {
+        if (nextBooking) {
             setMaximumDuration(Math.min(
-                differenceInMinutes(current, nextBooking.start),
+                differenceInMinutes(nextBooking.start, current),
                 roomDetails.maximumBookingDuration,
             ));
         }

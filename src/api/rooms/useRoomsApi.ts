@@ -27,10 +27,17 @@ export const useRoomApi = () => {
     [client]);
 
 
+    const deleteBooking = useCallback((bookingId: string) => client.delete<IResultApi<null>>(
+        `${bookingsApi}/${bookingId}`,
+    ).then((response) => response.data.data),
+    [client]);
+
+
     return {
         getResource,
         getBooking,
         resetBooking,
         postBooking,
+        deleteBooking,
     };
 };

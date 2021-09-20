@@ -40,7 +40,7 @@ export const TimeLineSlot = ({ slot }: ITimeLineSlotProps) => {
                 <div
                     role="button"
                     tabIndex={0}
-                    className={`slot-container__col-${getSlotSize(slot)} ${slot.status} slot-information`}
+                    className={`slot-container__col-${getSlotSize(slot)} ${slot.status}`}
                     onClick={handleDisplaySlotInformation}
                 />
             }

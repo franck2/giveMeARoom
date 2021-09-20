@@ -1,4 +1,4 @@
-import { useGetRoomBooking } from '../../../api/rooms/calls/useGetRoomBooking';
+import { useHandleRoomBooking } from '../../../api/rooms/calls/useGetRoomBooking';
 import { useGetRoomDetails } from '../../../api/rooms/calls/useGetRoomDetails';
 import { RoomBody } from './body/RoomBody';
 import { RoomHeader } from './header/RoomHeader';
@@ -8,7 +8,12 @@ import './scss/Room.scss';
 
 export const Room = () => {
     const { roomDetails } = useGetRoomDetails();
-    const { bookings, handleResetBooking, handleGetBooking } = useGetRoomBooking(roomDetails?.id);
+    const {
+        bookings,
+        handleResetBooking,
+        handleGetBooking,
+        handleDeleteBooking,
+    } = useHandleRoomBooking(roomDetails?.id);
 
     return (
         <>
@@ -26,6 +31,7 @@ export const Room = () => {
                     bookings={bookings}
                     roomDetails={roomDetails}
                     handleGetBooking={handleGetBooking}
+                    handleDeleteBooking={handleDeleteBooking}
                 />
                 }
                 <div className={'room-timeline '}>

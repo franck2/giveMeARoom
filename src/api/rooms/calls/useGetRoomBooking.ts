@@ -3,14 +3,17 @@
 /* eslint-disable no-unused-vars */
 import { useCallback, useEffect, useState } from 'react';
 
+import { millisecondsInMinute } from 'date-fns';
+
 import { IRoomBookingFront } from '../../../types/components/pages/room/IRoomBooking';
 import { mapBookingBackToFront } from '../helpers/roomMappers';
 import { useRoomApi } from '../useRoomsApi';
+import { refreshEveryNMinutes } from './helpers/roomCallConstants';
 
 
-export const useGetRoomBooking = (_roomId?: string) => {
+export const useHandleRoomBooking = (_roomId?: string) => {
     const [bookings, setBookings] = useState<IRoomBookingFront[]>();
-    const { getBooking, resetBooking } = useRoomApi();
+    const { getBooking, resetBooking, deleteBooking } = useRoomApi();
 
     const handleGetBooking = useCallback(() => getBooking().then((response) => {
         setBookings(mapBookingBackToFront(response));
@@ -24,6 +27,14 @@ export const useGetRoomBooking = (_roomId?: string) => {
         handleGetBooking();
     }, [handleGetBooking]);
 
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            handleGetBooking();
+        }, millisecondsInMinute * refreshEveryNMinutes);
+
+        return () => clearTimeout(timer);
+    }, [bookings, handleGetBooking]);
+
     const handleResetBooking = useCallback(
         () => {
             resetBooking().then(() => {
@@ -33,9 +44,19 @@ export const useGetRoomBooking = (_roomId?: string) => {
         [resetBooking, handleGetBooking],
     );
 
+    const handleDeleteBooking = useCallback(
+        (bookingId: string) => {
+            deleteBooking(bookingId).then(() => {
+                handleGetBooking();
+            });
+        },
+        [deleteBooking, handleGetBooking],
+    );
+
     return {
         bookings,
         handleResetBooking,
         handleGetBooking,
+        handleDeleteBooking,
     };
 };
