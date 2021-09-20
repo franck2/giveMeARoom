@@ -5,6 +5,6 @@ import { defaultToasterConfiguration } from '../../../tools/logger/helpers/logCo
 import './scss/Toaster.scss';
 
 export const Toaster = () => (<ToastContainer
-    {...defaultToasterConfiguration}
     className={'toast-container'}
+    {...defaultToasterConfiguration}
 />);
