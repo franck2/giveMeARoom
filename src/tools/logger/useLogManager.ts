@@ -9,7 +9,11 @@ export const useLogManager = () => {
         toast.error(msg, {
             ...defaultToastParams,
         });
-        console.error(error);
+
+        // eslint-disable-next-line no-process-env
+        if (process.env.REACT_APP_ENV !== 'test') {
+            console.error(error);
+        }
     }, []);
 
     const logSuccess = useCallback((msg: string) => {

@@ -27,7 +27,6 @@ export const TimeLineSlot = ({ slot }: ITimeLineSlotProps) => {
     [slot.booking?.userId, handleGetUser]);
 
     return (
-
         <PopoverCustom
             baseId={''}
             disabled={!slot.booking || slot.status === RoomStatusEnum.FREE}

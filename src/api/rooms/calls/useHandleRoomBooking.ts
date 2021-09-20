@@ -1,4 +1,3 @@
-/* on pourrait avoir besoin de la variable non utilisée si on voulait avoir accès à d'autres salles*/
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-vars */
 import { useCallback, useEffect, useState } from 'react';
@@ -23,12 +22,14 @@ export const useHandleRoomBooking = (_roomId?: string) => {
     const { translateCommon } = useTranslateCommon();
     const { translateBooking } = useTranslateBooking();
 
-    const handleGetBooking = useCallback(() => getBooking().then((response) => {
-        setBookings(mapBookingBackToFront(response));
-    })
-        .catch((error) => {
-            logError(translateCommon(TranslateCommonKeys.errorWS), error);
-        }),
+    const handleGetBooking = useCallback(() => {
+        getBooking().then((response) => {
+            setBookings(mapBookingBackToFront(response));
+        })
+            .catch((error) => {
+                logError(translateCommon(TranslateCommonKeys.errorWS), error);
+            });
+    },
     [getBooking, translateCommon, logError]);
 
     useEffect(() => {

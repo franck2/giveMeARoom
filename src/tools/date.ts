@@ -2,6 +2,8 @@
 import { format, isAfter, isBefore, isSameMinute } from 'date-fns';
 import { enGB, fr } from 'date-fns/locale';
 
+/* we do not test this function because in test mode it alwas return the same value*/
+/* istanbul ignore next */
 export const getLocale = () => {
     const lang = navigator.language;
 
