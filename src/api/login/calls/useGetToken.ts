@@ -6,6 +6,9 @@ import { useHistory } from 'react-router';
 
 import { appRoutesUrl } from '../../../components/router/appRoutesUrl';
 import { useAuthContext } from '../../../providers/AuthProvider';
+import { useLogManager } from '../../../tools/logger/useLogManager';
+import { useTranslateCommon } from '../../../translate/hooks/useTranslateCommon';
+import { TranslateCommonKeys } from '../../../translate/keys/TranslateCommonKeys';
 import { ILoginForm } from '../../../types/ILoginForm';
 import { AuthActionEnum } from '../../../types/providers/auth/AuthActionEnum';
 import { useLoginApi } from '../useLoginApi';
@@ -13,6 +16,8 @@ import { useLoginApi } from '../useLoginApi';
 export const useGetToken = () => {
     const { getToken } = useLoginApi();
     const { dispatchAuth } = useAuthContext();
+    const { logError } = useLogManager();
+    const { translateCommon } = useTranslateCommon();
     const history = useHistory();
 
     const handleGetToken = useCallback((_loginForm: ILoginForm) => {
@@ -26,10 +31,10 @@ export const useGetToken = () => {
             });
             history.push(appRoutesUrl.room);
         })
-            .catch((_err) => {
-                // 'TODO' log error
+            .catch((error) => {
+                logError(error, translateCommon(TranslateCommonKeys.loginError));
             });
-    }, [dispatchAuth, getToken, history]);
+    }, [translateCommon, dispatchAuth, getToken, logError, history]);
 
     return {
         handleGetToken,

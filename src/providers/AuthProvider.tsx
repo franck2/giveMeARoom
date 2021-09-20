@@ -4,6 +4,9 @@ import { isBefore } from 'date-fns';
 
 import { useUsersApi } from '../api/users/useUsersApi';
 import { getDataFromLocalStorage } from '../tools/localStorage';
+import { useLogManager } from '../tools/logger/useLogManager';
+import { useTranslateCommon } from '../translate/hooks/useTranslateCommon';
+import { TranslateCommonKeys } from '../translate/keys/TranslateCommonKeys';
 import { ILoginResultApi } from '../types/api/ILoginResultApi';
 import { AuthActionEnum } from '../types/providers/auth/AuthActionEnum';
 import { IAuthAction } from '../types/providers/auth/IAuthAction';
@@ -16,10 +19,13 @@ const DispatchAuth = createContext<Dispatch<IAuthAction>>(() => ({
 
 
 interface IAuthProviderProps {
-    children: JSX.Element,
+    children: JSX.Element | JSX.Element[],
 }
 export const AuthProvider = ({ children }: IAuthProviderProps) => {
     const { getMe } = useUsersApi();
+    const { logError } = useLogManager();
+    const { translateCommon } = useTranslateCommon();
+
     const [auth, dispatchAuth]: [IAuthContext, Dispatch<IAuthAction>] = useReducer(
         getAuthReducer, {
             token: '',
@@ -57,11 +63,11 @@ export const AuthProvider = ({ children }: IAuthProviderProps) => {
                     type: AuthActionEnum.USER_UPDATE,
                 });
             })
-                .catch(() => {
-                // 'TODO' log error
+                .catch((error) => {
+                    logError(translateCommon(TranslateCommonKeys.errorWS), error);
                 });
         }
-    }, [auth.token, getMe]);
+    }, [auth.token, getMe, translateCommon, logError]);
 
     return (
         <AuthContext.Provider value={auth} >

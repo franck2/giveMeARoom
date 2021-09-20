@@ -47,6 +47,8 @@ export const ReservationFormActions = ({
                 differenceInMinutes(nextBooking.start, current),
                 roomDetails.maximumBookingDuration,
             ));
+        } else {
+            setMaximumDuration(roomDetails.maximumBookingDuration);
         }
     }, [nextBooking, roomDetails.maximumBookingDuration]);
 

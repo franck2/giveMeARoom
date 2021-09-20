@@ -1,8 +1,9 @@
-import { useHandleRoomBooking } from '../../../api/rooms/calls/useGetRoomBooking';
 import { useGetRoomDetails } from '../../../api/rooms/calls/useGetRoomDetails';
+import { useHandleRoomBooking } from '../../../api/rooms/calls/useHandleRoomBooking';
 import { RoomBody } from './body/RoomBody';
 import { RoomHeader } from './header/RoomHeader';
 import { TimeLine } from './timeline/TimeLine';
+
 
 import './scss/Room.scss';
 

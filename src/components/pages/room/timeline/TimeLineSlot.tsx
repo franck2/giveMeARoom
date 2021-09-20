@@ -39,6 +39,11 @@ export const TimeLineSlot = ({ slot }: ITimeLineSlotProps) => {
             disclosure={
                 <div
                     role="button"
+                    aria-label={
+                        translateBooking(
+                            TranslateBookingKeys[`slotIs${slot.status}` as keyof typeof TranslateBookingKeys],
+                        )
+                    }
                     tabIndex={0}
                     className={`slot-container__col-${getSlotSize(slot)} ${slot.status}`}
                     onClick={handleDisplaySlotInformation}

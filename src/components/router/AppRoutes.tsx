@@ -19,7 +19,7 @@ export const AppRoutes = () => {
                         </>
                         :
                         <>
-                            <RoutesWithAuth /> :
+                            <RoutesWithAuth />
                             <Redirect to={appRoutesUrl.room}/>
                         </>
                 }

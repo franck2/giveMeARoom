@@ -1,11 +1,15 @@
 {
     "en-GB": {
         "email": "Email",
+        "errorWS": "An error occured",
+        "loginError": "An error occured, verify yous login informations",
         "password": "Password",
         "submit": "Submit"
     },
     "fr-FR": {
         "email": "Email",
+        "errorWS": "Une erreur est survenue",
+        "loginError": "Une erreur est survenue, veuillez vérifier vos information de connection",
         "password": "Mot de passe",
         "submit": "Valider"
     }
