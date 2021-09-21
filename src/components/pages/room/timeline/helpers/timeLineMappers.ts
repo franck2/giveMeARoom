@@ -1,6 +1,6 @@
 import { IRoomBookingFront } from '../../../../../types/components/pages/room/IRoomBooking';
 import { ITimeLineBloc } from '../../../../../types/components/pages/room/timeline/ITimeLineBloc';
-import { getBookedSlot,
+import { addBookedSlot,
     getInitializeFreeMinutesByHours,
     getMinutesByHours } from './slotCalculation';
 import { getMinuteBlocByHours, removeBookingMinutes } from './timelineBlocCalcultations';
@@ -18,7 +18,7 @@ export const mapBookingToTimeLineBloc = (
 
         removeBookingMinutes(freeMinutesByHours, newBookedMinutesByHours);
 
-        getBookedSlot(newBookedMinutesByHours, bookedMinutesByHours, booking, userId);
+        addBookedSlot(bookedMinutesByHours, newBookedMinutesByHours, booking, userId);
     }
 
     return getMinuteBlocByHours(freeMinutesByHours, bookedMinutesByHours);

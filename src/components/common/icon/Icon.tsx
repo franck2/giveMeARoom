@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { IconKeyEnum } from '../../../types/components/common/icon/IconKeyEnum';
 import { IIconParams } from '../../../types/components/common/icon/IIconParams';
-import { iconsMapping } from './iconsMapping';
+import { iconsMapping } from './helpers/iconsMapping';
 
 interface IIConProps {
     iconKey: IconKeyEnum,

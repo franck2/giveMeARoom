@@ -14,7 +14,7 @@ export const getBoundaryTimeLine = () => {
 
     if (isRangeWillBeOutLastHour(current)) {
         endHour = maxHour;
-        startHour -= defaultLeftRightRange + (defaultLeftRightRange - (maxHour - current));
+        startHour -= maxTimeRange - (maxHour - current);
     } else if (isRangeWillBeOutFirtHour(current)) {
         startHour = minHour;
         endHour += defaultLeftRightRange - (current - defaultLeftRightRange);

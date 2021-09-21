@@ -4,6 +4,7 @@ import { IRoomBookingFront } from '../../../../../types/components/pages/room/IR
 import { ITimeLineBloc } from '../../../../../types/components/pages/room/timeline/ITimeLineBloc';
 import { RoomStatusEnum } from '../../../../../types/components/pages/room/timeline/RoomStatusEnum';
 import { getBoundaryTimeLine } from './hoursCalculations';
+import { numberOfMinutesInOneHour } from './timeLineContants';
 
 export const getMinutesByHours = (start: Date, end: Date): Map<number, number[]> => {
     const bookingMinutesByHours = new Map();
@@ -14,7 +15,7 @@ export const getMinutesByHours = (start: Date, end: Date): Map<number, number[]>
     for (let indexHour = beginingHour; indexHour <= endingHour; indexHour++) {
         const minutes: number[] = [];
         const beginingMinutes = indexHour === beginingHour ? getMinutes(start) : 0;
-        const endingMinutes = indexHour === endingHour ? getMinutes(end) : 59;
+        const endingMinutes = indexHour === endingHour ? getMinutes(end) : numberOfMinutesInOneHour - 1;
 
         for (let indexMinutes = beginingMinutes; indexMinutes <= endingMinutes; indexMinutes++) {
             minutes.push(indexMinutes);
@@ -41,7 +42,6 @@ export const getInitializeFreeMinutesByHours = (): Map<number, number[]> => {
         ),
         minutesInHour - 1,
     );
-
 
     return getMinutesByHours(start, end);
 };
@@ -83,9 +83,9 @@ export const getSlotsHour = (
 };
 
 
-export const getBookedSlot = (
-    newBookedMinutesByHours: Map<number, number[]>,
+export const addBookedSlot = (
     bookedMinutesByHours: Map<number, ITimeLineBloc[]>,
+    newBookedMinutesByHours: Map<number, number[]>,
     booking: IRoomBookingFront,
     userId?: string,
 ) => {

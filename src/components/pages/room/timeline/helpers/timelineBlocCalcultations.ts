@@ -1,9 +1,8 @@
-import { setMinutes, setHours, minutesInHour, getHours } from 'date-fns';
-
 import { ITimeLineBloc } from '../../../../../types/components/pages/room/timeline/ITimeLineBloc';
 import { RoomStatusEnum } from '../../../../../types/components/pages/room/timeline/RoomStatusEnum';
 import { getBoundaryTimeLine } from './hoursCalculations';
 import { getSlotsHour } from './slotCalculation';
+import { maxHour } from './timeLineContants';
 
 export const removeBookingMinutes = (
     freeMinutesByHours: Map<number, number[]>,
@@ -28,24 +27,14 @@ export const getMinuteBlocByHours = (
 ) => {
     const timeline: Map<number, ITimeLineBloc[]> = new Map();
 
-
     const times = getBoundaryTimeLine();
-    const start = setMinutes(
-        setHours(
-            new Date(),
-            times.startHour,
-        )
-        , 0,
-    );
-    const end = setMinutes(
-        setHours(
-            new Date(),
-            times.endHour,
-        ),
-        minutesInHour - 1,
-    );
 
-    for (let indexHour = getHours(start); indexHour < getHours(end); indexHour++) {
+    // For the last boundary we need to go to 23:59
+    // We can't use 24 as max hour so we use this assignation
+    const lastHour = times.endHour === maxHour ? maxHour + 1 : times.endHour;
+    const firstHour = times.endHour === maxHour ? times.startHour + 1 : times.startHour;
+
+    for (let indexHour = firstHour; indexHour < lastHour; indexHour++) {
         const minutes = freeMinutesByHours.get(indexHour) || [];
         const bookedMinutes = bookedMinutesByHours.get(indexHour) || [];
 

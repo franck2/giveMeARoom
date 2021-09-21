@@ -35,17 +35,15 @@ export const ReservationForm = ({
         setNextBooking(getNexBookingFromDate(new Date(), bookings));
     }, [bookings]);
 
-    const handleBookTheRoom = useCallback(
-        () => {
-            const params: IBookingPost = {
-                duration: bookingDuration,
-                name: translateBooking(TranslateBookingKeys.lastMinute),
-            };
+    const handleBookTheRoom = useCallback(() => {
+        const params: IBookingPost = {
+            duration: bookingDuration,
+            name: translateBooking(TranslateBookingKeys.lastMinute),
+        };
 
-            handlePostBooking(params, handleGetBooking);
-        },
-        [bookingDuration, handlePostBooking, handleGetBooking, translateBooking],
-    );
+        handlePostBooking(params, handleGetBooking);
+    },
+    [bookingDuration, handlePostBooking, handleGetBooking, translateBooking]);
 
     return (
         <ElevationContainer className={'reservation-form'}>

@@ -1,6 +1,6 @@
 import { faPlus, faMinus, faSync } from '@fortawesome/free-solid-svg-icons';
 
-import { IconMappingType } from '../../../types/components/common/icon/IconType';
+import { IconMappingType } from '../../../../types/components/common/icon/IconType';
 
 export const iconsMapping: IconMappingType = {
     plus: {
