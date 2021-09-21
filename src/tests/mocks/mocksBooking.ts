@@ -1,8 +1,16 @@
 import { IBookingPost } from '../../types/api/IBookingPost';
 import { IPostBookingResult } from '../../types/api/IPostBookingResult';
 import { IResultApi } from '../../types/api/IResultApi';
-import { IRoomBookingBack } from '../../types/components/pages/room/IRoomBooking';
+import { IRoomBookingBack, IRoomBookingFront } from '../../types/components/pages/room/IRoomBooking';
 import { IRoomDetails } from '../../types/components/pages/room/IRoomDetails';
+
+export const mockRoomDetails: IRoomDetails = {
+    id: 'idResource',
+    bookingDurationStep: 10,
+    maximumBookingDuration: 90,
+    minimumBookingDuration: 10,
+    name: 'resource',
+};
 
 export const mockResponseGetResource: IResultApi<IRoomDetails> = {
     data: {
@@ -14,7 +22,6 @@ export const mockResponseGetResource: IResultApi<IRoomDetails> = {
     },
     success: true,
 };
-
 
 export const mockResponseNull: IResultApi<null> = {
     data: null,
@@ -47,3 +54,14 @@ export const mockBookingPostResult: IResultApi<IPostBookingResult> = {
     },
     success: true,
 };
+
+
+export const mockBookingsFront: IRoomBookingFront[] = [
+    {
+        end: new Date('2020-10-23 17:11'),
+        start: new Date('2020-10-23 18:11'),
+        id: 'idBooking',
+        name: 'nameBooking',
+        userId: 'userId',
+    },
+];

@@ -33,7 +33,8 @@ export const ReservationForm = ({
 
     useEffect(() => {
         setNextBooking(getNexBookingFromDate(new Date(), bookings));
-    }, [bookings]);
+        setBookingDuration(roomDetails.minimumBookingDuration);
+    }, [roomDetails.minimumBookingDuration, bookings]);
 
     const handleBookTheRoom = useCallback(() => {
         const params: IBookingPost = {

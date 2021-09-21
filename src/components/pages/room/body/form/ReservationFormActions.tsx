@@ -65,6 +65,7 @@ export const ReservationFormActions = ({
             </button>
             <button
                 role={'button '}
+                data-testid={'submit-reservation'}
                 className={'button central-button'}
                 disabled={!canBook}
                 onClick={handleBookTheRoom}

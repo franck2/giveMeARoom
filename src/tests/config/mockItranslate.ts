@@ -3,6 +3,7 @@ const mockTranslate = jest.fn();
 
 
 jest.mock('react-i18next', () => {
+    mockTranslate.mockImplementation((value: string) => value);
     const translate = {
         ...jest.requireActual('react-i18next'),
         useTranslation: () => ({
