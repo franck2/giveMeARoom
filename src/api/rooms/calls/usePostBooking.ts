@@ -21,8 +21,9 @@ export const usePostBooking = () => {
             logSuccess(translateBooking(TranslateBookingKeys.bookingSaved));
         })
             .catch((error) => {
-                if (error.status === 403) {
+                if (error.response.status === 409) {
                     logError(translateBooking(TranslateBookingKeys.slotAlreadyBooked), error);
+                    callBack();
                 } else {
                     logError(translateCommon(TranslateCommonKeys.errorWS), error);
                 }
