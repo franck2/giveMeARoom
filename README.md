@@ -3,7 +3,7 @@
 ## Installation
 
 Pour fonctionner le projet nécéssite node 16.
-Cependant pour foncitonner, le back associé à besoin de node 12.
+Cependant pour fonctionner, le back associé à besoin de node 12.
 
 Je conseil donc d'installer nvm pour gérer les versions de node.
 Il faut donc dans un premier temps lancer le back avec node 12, changer de version de node et lancer le front.
@@ -38,7 +38,7 @@ La time line affiche toujours 12 créneaux horaires (un créneau horaire étant 
 
 De plus ce sont au minumum 6 créneaux horaires avant ou après l'heure courante qui sont affichés quand cela est possible (moins ou plus en fonction de si nous sommes en début ou fin de journée). Ainsi en regardant la timeline à 12h36, nous verront les réservations de 06h00 à 18h00.
 
-Ce choix est fait étant donné que la réservation est faite à un instant T dans la journée, ansin on peut voir les réservation juste avant ou juste après la notre.
+Ce choix est fait étant donné que la réservation est faite à un instant T dans la journée, ainsi on peut voir les réservations juste avant ou juste après la notre.
 
 Une timeline sur un plus long temps aurait rendu la lecture des informations plus compliquée.
 
@@ -52,7 +52,7 @@ Pour facilité les test des différents cas limite, un bouton a été ajouté en
 
 ### Automatiquement
 
-A chaque requete POSR ou DELETE, un refresh des données est faite vie un appel GET, de plus toutes les 5 minutes un appel est fait pour refresh l'écran.
+A chaque requête POST ou DELETE, un refresh des données est fait via un appel GET, de plus toutes les 5 minutes un appel est fait pour refresh l'écran.
 
 ## Connection
 

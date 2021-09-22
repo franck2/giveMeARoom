@@ -22,7 +22,7 @@ export const RoomState = ({
     const { translateBooking } = useTranslateBooking();
     const { user, handleGetUser } = useGetUser();
     const { auth } = useAuthContext();
-    const [colorSlotClassName, setColorSlotClassName] = useState('free');
+    const [statusRoom, setStatusRoom] = useState('free');
 
     const handleCancelReservation = useCallback(() => {
         if (bookedSlot?.id) {
@@ -33,9 +33,9 @@ export const RoomState = ({
     useEffect(() => {
         if (bookedSlot?.userId) {
             handleGetUser(bookedSlot?.userId);
-            setColorSlotClassName(bookedSlot.userId === auth?.userId ? 'self-booked' : 'booked');
+            setStatusRoom(bookedSlot.userId === auth?.userId ? 'self-booked' : 'booked');
         } else {
-            setColorSlotClassName('free');
+            setStatusRoom('free');
         }
     }, [auth?.userId, bookedSlot?.userId, handleGetUser]);
 
@@ -43,7 +43,7 @@ export const RoomState = ({
         <>
             {
                 auth?.userId ?
-                    <ElevationContainer className={`room-state actual-status-${colorSlotClassName}`}>
+                    <ElevationContainer className={`room-state actual-status-${statusRoom}`}>
                         <div className={'room-state-container'}>
                             <div className={'room-msg-container'}>
                                 <div className={'room-msg'}>
